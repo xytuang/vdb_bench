@@ -15,6 +15,21 @@ Binary file format (truth.bin):
     [int32 num_queries][int32 top_k][num_queries × top_k × int32 neighbor_ids]
     Optionally followed by num_queries × top_k × float32 distances (ignored here).
 
+RAM-friendly training conversion
+---------------------------------
+50 M × 100-d float32 vectors ≈ 20 GB in a Python list-of-lists before Parquet
+serialisation, which easily exhausts RAM on typical workstations.
+
+The approach here:
+  1. Split the work into NUM_TRAIN_PARTS equal slices.
+  2. Write each slice to a *part file* (train_part_0.parquet … train_part_4.parquet)
+     in separate processes so they run concurrently but each only holds 1/N of
+     the data at a time.
+  3. Once all part files exist, merge them *sequentially* – reading one part at a
+     time and appending to the final train.parquet via PyArrow's ParquetWriter so
+     the merge itself also stays RAM-efficient.
+  4. Delete the part files after a successful merge.
+
 Usage:
     python convert_spacev1b_to_parquet.py          # use defaults below
     python convert_spacev1b_to_parquet.py --help   # show all options
@@ -29,6 +44,8 @@ import argparse
 
 import numpy as np
 import pandas as pd
+import pyarrow as pa
+import pyarrow.parquet as pq
 
 RAW_DATA_DIR = "/mydata/SPTAG/datasets/SPACEV1B"
 PARQUET_DATA_DIR = "/mydata/spacev1b"
@@ -45,6 +62,9 @@ NEIGHBORS_FILE = "neighbors.parquet"
 # How many training vectors to include (full dataset is ~1 billion;
 DEFAULT_NUM_TRAIN_VECTORS = 50_000_000
 DEFAULT_BATCH_SIZE = 10_000
+# Number of equal slices the training data is split into before merging.
+# Each part process holds at most (num_train / NUM_TRAIN_PARTS) vectors in RAM.
+NUM_TRAIN_PARTS = 5
 
 
 def raw_data_exists(raw_dir: str) -> bool:
@@ -64,7 +84,6 @@ def parquet_data_exists(parquet_dir: str) -> bool:
 
 def download_data():
     subprocess.run(["./download_data.sh"], check=True)
-
 
 class SPACEV1BReader:
     """
@@ -118,6 +137,7 @@ class SPACEV1BReader:
             dim   = struct.unpack("<i", f.read(4))[0]
         return count, dim
 
+
     def read_vectors(self, start_idx: int, count: int) -> np.ndarray:
         """
         Read *count* vectors starting at *start_idx*.
@@ -146,6 +166,10 @@ class SPACEV1BReader:
         return queries.astype(np.float32)
 
     def read_truth(self) -> np.ndarray:
+        """
+        Read the pre-computed ground-truth neighbor indices.
+        Returns int32 array of shape (num_queries, top_k).
+        """
         with open(self.truth_file, "rb") as f:
             f.seek(self.HEADER_BYTES)
             data = f.read(self.num_truth * self.top_k * 4)  # int32 = 4 bytes
@@ -154,60 +178,158 @@ class SPACEV1BReader:
         return truth
 
 
+def _train_part_path(parquet_dir: str, part_idx: int) -> str:
+    return os.path.join(parquet_dir, f"train_part_{part_idx}.parquet")
+
+
+def _write_train_part(
+    raw_dir: str,
+    parquet_dir: str,
+    part_idx: int,
+    global_start: int,
+    part_vectors: int,
+    batch_size: int,
+) -> None:
+    """
+    Worker function (runs in its own process).
+
+    Reads *part_vectors* vectors from the binary file starting at
+    *global_start*, and writes them to train_part_<part_idx>.parquet.
+    Only 1/NUM_TRAIN_PARTS of the total data lives in RAM at any moment.
+    """
+    out_path = _train_part_path(parquet_dir, part_idx)
+    if os.path.isfile(out_path):
+        print(f"  [part {part_idx}] already exists, skipping")
+        return
+
+    reader     = SPACEV1BReader(raw_dir)
+    num_batches = (part_vectors + batch_size - 1) // batch_size
+    start_time = time.time()
+
+    # PyArrow writer lets us append row-groups without holding all rows in RAM
+    schema = pa.schema([
+        pa.field("id",  pa.int64()),
+        pa.field("emb", pa.list_(pa.float32())),
+    ])
+    writer = pq.ParquetWriter(out_path, schema)
+
+    for batch_idx in range(num_batches):
+        batch_start = global_start + batch_idx * batch_size
+        count       = min(batch_size, global_start + part_vectors - batch_start)
+
+        vectors = reader.read_vectors(batch_start, count)
+
+        ids = list(range(batch_start, batch_start + count))
+        emb = [vectors[i].tolist() for i in range(count)]
+
+        table = pa.table({"id": ids, "emb": emb}, schema=schema)
+        writer.write_table(table)
+
+        if (batch_idx + 1) % 100 == 0 or batch_idx == num_batches - 1:
+            elapsed  = time.time() - start_time
+            progress = min((batch_idx + 1) * batch_size, part_vectors)
+            rate     = progress / elapsed if elapsed > 0 else float("inf")
+            print(
+                f"  [part {part_idx}] {progress:,} / {part_vectors:,} "
+                f"({progress * 100.0 / part_vectors:.1f}%)  –  {rate:,.0f} vec/s"
+            )
+
+    writer.close()
+    elapsed = time.time() - start_time
+    print(
+        f"[part {part_idx}] done – {part_vectors:,} vectors in "
+        f"{elapsed:.1f}s  ({part_vectors / elapsed:,.0f} vec/s)"
+    )
+
+
+def _merge_train_parts(parquet_dir: str, num_parts: int) -> None:
+    """
+    Merge part files into the final train.parquet *one part at a time*
+    so peak RAM never exceeds a single part's worth of data.
+    Deletes each part file immediately after it has been appended.
+    """
+    out_path = os.path.join(parquet_dir, TRAIN_FILE)
+    print(f"\nMerging {num_parts} part files → {out_path}")
+
+    # Infer schema from part 0 to initialise the writer
+    first_part = _train_part_path(parquet_dir, 0)
+    schema = pq.read_schema(first_part)
+    writer = pq.ParquetWriter(out_path, schema)
+
+    total_rows = 0
+    for part_idx in range(num_parts):
+        part_path = _train_part_path(parquet_dir, part_idx)
+        print(f"  Appending part {part_idx} …", end=" ", flush=True)
+
+        part_table = pq.read_table(part_path)
+        writer.write_table(part_table)
+        total_rows += len(part_table)
+
+        # Free RAM immediately before reading the next part
+        del part_table
+
+        print(f"done  (running total: {total_rows:,} rows)")
+
+        # Remove part file now that it's safely merged
+        os.remove(part_path)
+        print(f"  Deleted {part_path}")
+
+    writer.close()
+    print(f"train.parquet written – {total_rows:,} vectors total")
+
+
 def create_train_file(
     raw_dir: str,
     parquet_dir: str,
     num_vectors: int = DEFAULT_NUM_TRAIN_VECTORS,
     batch_size: int = DEFAULT_BATCH_SIZE,
+    num_parts: int = NUM_TRAIN_PARTS,
 ) -> None:
     """
-    Read up to *num_vectors* training vectors in batches and write
-    train.parquet in the VectorDBBench schema:
+    Split *num_vectors* training vectors into *num_parts* equal slices,
+    write each slice to its own parquet file in parallel, then merge
+    them sequentially into the final train.parquet.
 
-        id     : int64
-        emb    : list[float32]
+    Peak RAM per process ≈ (num_vectors / num_parts) × dim × 4 bytes.
+    For 50 M vectors / 5 parts × 100-d = ~2 GB per part process.
     """
-    reader = SPACEV1BReader(raw_dir)
+    reader      = SPACEV1BReader(raw_dir)
     num_vectors = min(num_vectors, reader.num_vectors)
-    num_batches = (num_vectors + batch_size - 1) // batch_size
 
-    out_path = os.path.join(parquet_dir, TRAIN_FILE)
-    start_time = time.time()
+    # Divide vectors as evenly as possible across parts
+    base, remainder = divmod(num_vectors, num_parts)
+    slices = []          # list of (global_start, part_size)
+    offset = 0
+    for i in range(num_parts):
+        size = base + (1 if i < remainder else 0)
+        slices.append((offset, size))
+        offset += size
 
-    # Collect all rows then write once.  For very large runs you could
-    # write multiple parquet part-files and list them in VDBBench config.
-    all_rows = []
+    # Phase 1 – write parts in parallel
+    print(f"\nPhase 1: writing {num_parts} part files in parallel …")
+    processes = []
+    for part_idx, (global_start, part_size) in enumerate(slices):
+        if os.path.isfile(_train_part_path(parquet_dir, part_idx)):
+            print(f"  [part {part_idx}] already on disk, skipping")
+            continue
+        p = multiprocessing.Process(
+            target=_write_train_part,
+            args=(raw_dir, parquet_dir, part_idx, global_start, part_size, batch_size),
+            name=f"train-part-{part_idx}",
+        )
+        processes.append(p)
+        p.start()
 
-    for batch_idx in range(num_batches):
-        start_idx = batch_idx * batch_size
-        count = min(batch_size, num_vectors - start_idx)
-
-        vectors = reader.read_vectors(start_idx, count)
-
-        for i in range(count):
-            all_rows.append({
-                "id":  start_idx + i,
-                "emb": vectors[i].tolist(),
-            })
-
-        if (batch_idx + 1) % 100 == 0 or batch_idx == num_batches - 1:
-            elapsed = time.time() - start_time
-            loaded  = min((batch_idx + 1) * batch_size, num_vectors)
-            rate    = loaded / elapsed if elapsed > 0 else float("inf")
-            print(
-                f"  {loaded:,} / {num_vectors:,} vectors "
-                f"({loaded * 100.0 / num_vectors:.1f}%)  –  "
-                f"{rate:,.0f} vec/s"
+    for p in processes:
+        p.join()
+        if p.exitcode != 0:
+            raise RuntimeError(
+                f"Part-writing process '{p.name}' failed (exit {p.exitcode})"
             )
 
-    df = pd.DataFrame(all_rows)
-    df.to_parquet(out_path, index=False)
-
-    elapsed = time.time() - start_time
-    print(
-        f"train.parquet written ({len(df):,} vectors) in "
-        f"{elapsed:.1f}s  ({num_vectors / elapsed:,.0f} vec/s)"
-    )
+    # Phase 2 – sequential merge (one part in RAM at a time)
+    print(f"\nPhase 2: merging parts into train.parquet …")
+    _merge_train_parts(parquet_dir, num_parts)
 
 
 def create_test_file(raw_dir: str, parquet_dir: str) -> None:
@@ -249,30 +371,31 @@ def create_neighbors_file(raw_dir: str, parquet_dir: str) -> None:
     pd.DataFrame(rows).to_parquet(out_path, index=False)
     print(f"neighbors.parquet written ({len(rows):,} rows, top-{truth.shape[1]})")
 
-
 def convert_to_parquet(
     raw_dir: str,
     parquet_dir: str,
     num_train: int,
     batch_size: int,
+    num_parts: int,
 ) -> None:
-    """Run each writer in its own process (they are I/O-bound, not CPU-bound)."""
-
+    """
+    Orchestrate conversion of all three files.
+    train.parquet is written via the split-then-merge path to cap RAM usage.
+    test.parquet and neighbors.parquet are small enough to write directly.
+    """
     tasks = []
 
     train_path     = os.path.join(parquet_dir, TRAIN_FILE)
     test_path      = os.path.join(parquet_dir, TEST_FILE)
     neighbors_path = os.path.join(parquet_dir, NEIGHBORS_FILE)
 
+    # train: call directly (it manages its own sub-processes internally)
     if not os.path.isfile(train_path):
-        tasks.append(multiprocessing.Process(
-            target=create_train_file,
-            args=(raw_dir, parquet_dir, num_train, batch_size),
-            name="train",
-        ))
+        create_train_file(raw_dir, parquet_dir, num_train, batch_size, num_parts)
     else:
-        print(f"  Skipping train.parquet (already exists)")
+        print("  Skipping train.parquet (already exists)")
 
+    # test + neighbors: small files, run in parallel with each other
     if not os.path.isfile(test_path):
         tasks.append(multiprocessing.Process(
             target=create_test_file,
@@ -280,7 +403,7 @@ def convert_to_parquet(
             name="test",
         ))
     else:
-        print(f"  Skipping test.parquet (already exists)")
+        print("  Skipping test.parquet (already exists)")
 
     if not os.path.isfile(neighbors_path):
         tasks.append(multiprocessing.Process(
@@ -289,7 +412,7 @@ def convert_to_parquet(
             name="neighbors",
         ))
     else:
-        print(f"  Skipping neighbors.parquet (already exists)")
+        print("  Skipping neighbors.parquet (already exists)")
 
     for p in tasks:
         print(f"  Starting process: {p.name}")
@@ -315,19 +438,25 @@ def parse_args():
                         help="Number of training vectors to include (default: 50M)")
     parser.add_argument("--batch-size", type=int, default=DEFAULT_BATCH_SIZE,
                         help="Vectors read per batch (default: 10 000)")
+    parser.add_argument("--num-parts",  type=int, default=NUM_TRAIN_PARTS,
+                        help="Number of part files to split training data into before "
+                             "merging (default: 5). Increase if you still run out of RAM.")
     return parser.parse_args()
 
 
 def main():
     args = parse_args()
-    raw_dir    = args.raw_dir
+
+    raw_dir     = args.raw_dir
     parquet_dir = args.out_dir
-    num_train  = args.num_train
-    batch_size = args.batch_size
+    num_train   = args.num_train
+    batch_size  = args.batch_size
+    num_parts   = args.num_parts
 
     print(f"Raw data dir   : {raw_dir}")
     print(f"Parquet out dir: {parquet_dir}")
     print(f"Train vectors  : {num_train:,}")
+    print(f"Train parts    : {num_parts}  (~{num_train // num_parts:,} vectors each)")
     print()
 
     # 1. Ensure raw data is present
@@ -348,7 +477,7 @@ def main():
         print("All parquet files already exist – nothing to do.")
         return
 
-    convert_to_parquet(raw_dir, parquet_dir, num_train, batch_size)
+    convert_to_parquet(raw_dir, parquet_dir, num_train, batch_size, num_parts)
 
 
 if __name__ == "__main__":
