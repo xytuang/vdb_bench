@@ -5,12 +5,12 @@ import os
 import re
 
 
-RESULTS_DIR = "../results/spacev1b50m/cache_sweep"
+RESULTS_DIR = "../results/spacev1b50m/beam_width_ratio_sweep"
 
 
-def parse_cache_gb_from_dirname(dirname):
-    """Extract cache size in GB from directory names like cache_4gb, cache_12gb."""
-    match = re.match(r'^cache_(\d+)gb$', dirname)
+def parse_ratio_from_dirname(dirname):
+    """Extract ratio size in GB from directory names like ratio_2, ratio_4."""
+    match = re.match(r'^ratio_(\d+)$', dirname)
     if match:
         return int(match.group(1))
     return None
@@ -18,8 +18,8 @@ def parse_cache_gb_from_dirname(dirname):
 
 def get_metrics(data):
     """
-    Extract metrics from a cache sweep result file.
-    These are serial (non-concurrent) runs, so we use qps and serial latency fields.
+    Extract metrics from a beam width ratio sweep result file.
+    These are concurrent runs, so we use qps and concurrent latency fields.
     """
     metrics = data["results"][0]["metrics"]
     return {
@@ -29,33 +29,33 @@ def get_metrics(data):
     }
 
 
-def load_all_cache_levels(base_dir):
+def load_all_ratio_levels(base_dir):
     """
-    Load all cache_Xgb subdirectories under base_dir.
-    Returns a dict: {cache_gb: [metrics_dict, ...]} where the list contains one
+    Load all ratio_x subdirectories under base_dir.
+    Returns a dict: {ratio: [metrics_dict, ...]} where the list contains one
     entry per run (r1.json, r2.json, ...).
     """
-    cache_data = {}
+    ratio_data = {}
 
     if not os.path.exists(base_dir):
         print(f"Error: directory '{base_dir}' does not exist.")
-        return cache_data
+        return ratio_data
 
     for entry in sorted(os.listdir(base_dir)):
-        cache_gb = parse_cache_gb_from_dirname(entry)
-        if cache_gb is None:
+        ratio = parse_ratio_from_dirname(entry)
+        if ratio is None:
             continue
 
-        cache_dir = os.path.join(base_dir, entry)
-        if not os.path.isdir(cache_dir):
+        ratio_dir = os.path.join(base_dir, entry)
+        if not os.path.isdir(ratio_dir):
             continue
 
-        print(f"Loading cache level: {entry}")
+        print(f"Loading ratio level: {entry}")
         runs = []
-        for filename in sorted(os.listdir(cache_dir)):
+        for filename in sorted(os.listdir(ratio_dir)):
             if not re.match(r'^r\d+\.json$', filename):
                 continue
-            file_path = os.path.join(cache_dir, filename)
+            file_path = os.path.join(ratio_dir, filename)
             try:
                 with open(file_path, 'r') as f:
                     data = json.load(f)
@@ -65,9 +65,9 @@ def load_all_cache_levels(base_dir):
                 print(f"  Error reading {file_path}: {e}")
 
         if runs:
-            cache_data[cache_gb] = runs
+            ratio_data[ratio] = runs
 
-    return cache_data
+    return ratio_data
 
 
 def average_runs(runs, key):
@@ -75,31 +75,31 @@ def average_runs(runs, key):
 
 
 def plot_results():
-    cache_data = load_all_cache_levels(RESULTS_DIR)
+    ratio_data = load_all_ratio_levels(RESULTS_DIR)
 
-    if not cache_data:
+    if not ratio_data:
         print("No data loaded. Exiting.")
         return
 
-    cache_sizes = sorted(cache_data.keys())
-    print(f"\nCache sizes found: {cache_sizes} GB")
+    ratio_sizes = sorted(ratio_data.keys())
+    print(f"\nratio sizes found: {ratio_sizes} GB")
 
-    x = np.array(cache_sizes)
+    x = np.array(ratio_sizes)
 
-    avg_qps = np.array([average_runs(cache_data[c], "qps")         for c in cache_sizes])
-    avg_p99 = np.array([average_runs(cache_data[c], "latency_p99") for c in cache_sizes])
-    avg_p95 = np.array([average_runs(cache_data[c], "latency_p95") for c in cache_sizes])
+    avg_qps = np.array([average_runs(ratio_data[c], "qps")         for c in ratio_sizes])
+    avg_p99 = np.array([average_runs(ratio_data[c], "latency_p99") for c in ratio_sizes])
+    avg_p95 = np.array([average_runs(ratio_data[c], "latency_p95") for c in ratio_sizes])
 
     # Per-run arrays for min/max shading
-    all_qps = np.array([[r["qps"]         for r in cache_data[c]] for c in cache_sizes])
-    all_p99 = np.array([[r["latency_p99"] for r in cache_data[c]] for c in cache_sizes])
+    all_qps = np.array([[r["qps"]         for r in ratio_data[c]] for c in ratio_sizes])
+    all_p99 = np.array([[r["latency_p99"] for r in ratio_data[c]] for c in ratio_sizes])
 
     fig, axes = plt.subplots(1, 2, figsize=(14, 6))
-    fig.suptitle("spacev1b50m — Cache Sweep", fontsize=13, fontweight='bold')
+    fig.suptitle("spacev1b50m — Beam Width Ratio Sweep", fontsize=13, fontweight='bold')
 
     # ── QPS ──────────────────────────────────────────────────────────────
     ax = axes[0]
-    max_runs = max(len(cache_data[c]) for c in cache_sizes)
+    max_runs = max(len(ratio_data[c]) for c in ratio_sizes)
     if max_runs > 1:
         ax.fill_between(x, all_qps.min(axis=1), all_qps.max(axis=1),
                         alpha=0.15, color='steelblue', label='min/max range')
@@ -108,10 +108,10 @@ def plot_results():
         ax.annotate(f'{yi:.0f}', (xi, yi), textcoords="offset points",
                     xytext=(0, 8), ha='center', fontsize=8)
     ax.set_xticks(x)
-    ax.set_xticklabels([f'{c} GB' for c in cache_sizes])
-    ax.set_xlabel('Cache Size', fontsize=11)
+    ax.set_xticklabels([f'{c}' for c in ratio_sizes])
+    ax.set_xlabel('Beam Width Ratio', fontsize=11)
     ax.set_ylabel('Queries per Second (QPS)', fontsize=11)
-    ax.set_title('Throughput vs Cache Size', fontsize=12)
+    ax.set_title('Throughput vs Beam Width Ratio', fontsize=12)
     ax.legend(fontsize=9)
     ax.grid(True, alpha=0.3)
 
@@ -125,15 +125,15 @@ def plot_results():
     ax.plot(x, avg_p95 * 1000, marker='^', color='darkorange',
             linewidth=2, linestyle='--', label='p95')
     ax.set_xticks(x)
-    ax.set_xticklabels([f'{c} GB' for c in cache_sizes])
-    ax.set_xlabel('Cache Size', fontsize=11)
+    ax.set_xticklabels([f'{c}' for c in ratio_sizes])
+    ax.set_xlabel('Beam Width Ratio', fontsize=11)
     ax.set_ylabel('Latency (ms)', fontsize=11)
-    ax.set_title('Latency vs Cache Size', fontsize=12)
+    ax.set_title('Latency vs Beam Width Ratio', fontsize=12)
     ax.legend(fontsize=9)
     ax.grid(True, alpha=0.3)
 
     plt.tight_layout()
-    out_path = "cache_sweep.png"
+    out_path = "ratio_sweep.png"
     plt.savefig(out_path, dpi=150, bbox_inches='tight')
     print(f"\nSaved plot to {out_path}")
     plt.show()
