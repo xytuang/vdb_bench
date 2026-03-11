@@ -63,6 +63,8 @@ set_search_mode true false   # serial=true, concurrent=false
 set_concurrency "1"
 
 echo ">>> Running serial search..."
+python3 load_index.py
+sleep 30
 NUM_PER_BATCH=10000 vectordbbench milvusdiskann --config-file "$CONFIG_FILE"
 echo ">>> Serial latency test complete."
 
@@ -79,7 +81,8 @@ for concurrency in "${CONCURRENCIES[@]}"; do
 
     restart_milvus
     drop_page_cache
-
+    python3 load_index.py
+    sleep 30
     # Patch the yaml so only this single concurrency level is tested
     set_concurrency "$concurrency"
 

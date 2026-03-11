@@ -3,8 +3,8 @@ milvusdiskann:
   db_label: "spacev1b_50m_diskann"
   drop_old: false          # drop and rebuild the collection from scratch
   load: false              # run the insert phase
-  search_serial: true
-  search_concurrent: true
+  search_serial: true     # run serial (single-thread) search after insert
+  search_concurrent: true # run concurrent search after serial
 
   case_type: PerformanceCustomDataset
   custom_case_name: "spacev1b50m"
