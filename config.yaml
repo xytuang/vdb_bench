@@ -25,5 +25,5 @@ milvusdiskann:
   search_list: 100
 
   k: 50
-  num_concurrency: "128"
+  num_concurrency: "8"
   concurrency_duration: 300
