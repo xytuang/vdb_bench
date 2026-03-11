@@ -932,7 +932,7 @@ common:
     BuildNumThreadsRatio: 1
     SearchCacheBudgetGBRatio: 0.2
     LoadNumThreadRatio: 8
-    BeamWidthRatio: 4
+    BeamWidthRatio: 1
   gracefulTime: 5000 # milliseconds. it represents the interval (in ms) by which the request arrival time needs to be subtracted in the case of Bounded Consistency.
   gracefulStopTimeout: 1800 # seconds. it will force quit the server if the graceful stop process is not completed during this time.
   namespace:
