@@ -3,7 +3,7 @@ milvusdiskann:
   db_label: "spacev1b_50m_diskann"
   drop_old: false          # drop and rebuild the collection from scratch
   load: false              # run the insert phase
-  search_serial: true
+  search_serial: false
   search_concurrent: true
 
   case_type: PerformanceCustomDataset
@@ -25,5 +25,5 @@ milvusdiskann:
   search_list: 100
 
   k: 50
-  num_concurrency: "1,2,4,8,16,32,64,128"
+  num_concurrency: "128"
   concurrency_duration: 300
