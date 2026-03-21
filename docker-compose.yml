@@ -47,8 +47,8 @@ services:
       MINIO_ADDRESS: minio:9000
       MQ_TYPE: woodpecker
     volumes:
-      - /mydata/benchmark/volumes/milvus:/var/lib/milvus
-      - /mydata/benchmark/milvus.yaml:/milvus/configs/milvus.yaml
+      - /mydata/vdb_bench/volumes/milvus:/var/lib/milvus
+      - /mydata/vdb_bench/milvus.yaml:/milvus/configs/milvus.yaml
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:9091/healthz"]
       interval: 30s
