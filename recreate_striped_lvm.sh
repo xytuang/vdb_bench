@@ -27,18 +27,17 @@ NC='\033[0m' # No Color
 
 # Configuration
 VG_NAME="emulab"
-LV_NAME="bs1"
+LV_NAME="node0-bs"
 MOUNT_POINT="/mydata"
-NUM_STRIPES=4
+NUM_STRIPES=3
 STRIPE_SIZE="256K"  # 256KB stripe size
-LV_SIZE="23T"       # 23 TB total
+LV_SIZE="17T"       # 23 TB total
 
 # NVMe devices to use (4 largest, fastest devices)
 NVME_DEVICES=(
     "/dev/nvme0n1"
     "/dev/nvme2n1"
     "/dev/nvme3n1"
-    "/dev/nvme4n1"
 )
 
 echo -e "${YELLOW}========================================================================${NC}"
