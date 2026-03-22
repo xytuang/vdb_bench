@@ -1,8 +1,8 @@
 milvusdiskann:
   uri: "http://localhost:19530"
   db_label: "spacev1b_50m_diskann"
-  drop_old: false          # drop and rebuild the collection from scratch
-  load: false              # run the insert phase
+  drop_old: true          # drop and rebuild the collection from scratch
+  load: true              # run the insert phase
   search_serial: true     # run serial (single-thread) search after insert
   search_concurrent: true # run concurrent search after serial
 

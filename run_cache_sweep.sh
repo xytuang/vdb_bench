@@ -48,7 +48,8 @@ for run in {1..3}; do
     python3 load_index.py
     sleep 30
     # Patch the yaml so only this single concurrency level is tested
-
+    # Warmup for 5 minutes
+    NUM_PER_BATCH=10000 vectordbbench milvusdiskann --config-file "$CONFIG_FILE"
     NUM_PER_BATCH=10000 vectordbbench milvusdiskann --config-file "$CONFIG_FILE"
     echo ">>> Run ${run} complete."
 done
