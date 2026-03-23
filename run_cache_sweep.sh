@@ -39,7 +39,7 @@ echo "========================================"
 echo " Start cache sweep test"
 echo "========================================"
 
-for run in {1..3}; do
+for run in {1..6}; do
     echo ""
     echo "--- Run: ${run} ---"
 

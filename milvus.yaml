@@ -517,7 +517,7 @@ queryNode:
   enableDisk: true # enable querynode load disk index, and search on disk index
   maxDiskUsagePercentage: 95
   cache:
-    memoryLimit: 4294967296 # Deprecated: 4 GB, 4 * 1024 *1024 *1024
+    memoryLimit: 6442450944 # Deprecated: 6 GB, 4 * 1024 *1024 *1024
     readAheadPolicy: willneed # The read ahead policy of chunk cache, options: `normal, random, sequential, willneed, dontneed`
     warmup: sync
   mmap:
