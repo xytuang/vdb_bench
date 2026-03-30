@@ -1,20 +1,20 @@
 milvusdiskann:
   uri: "http://localhost:19530"
-  db_label: "spacev1b_50m_diskann"
+  db_label: "spacev1b_500m_diskann"
   drop_old: true          # drop and rebuild the collection from scratch
   load: true              # run the insert phase
-  search_serial: true     # run serial (single-thread) search after insert
-  search_concurrent: true # run concurrent search after serial
+  search_serial: false     # run serial (single-thread) search after insert
+  search_concurrent: false # run concurrent search after serial
 
   case_type: PerformanceCustomDataset
-  custom_case_name: "spacev1b50m"
-  custom_case_description: "SPACEV1B 50M vectors, 100-dim, L2"
+  custom_case_name: "spacev1b500m"
+  custom_case_description: "SPACEV1B 500M vectors, 100-dim, L2"
   custom_case_load_timeout: 86400      # 24 hours for insert + index build
   custom_case_optimize_timeout: 86400  # 24 hours for post-insert optimization
 
   custom_dataset_name: "spacev1b"
   custom_dataset_dir: "/mydata/spacev1b"   # folder containing the .parquet files
-  custom_dataset_size: 50000000
+  custom_dataset_size: 500000000
   custom_dataset_dim: 100
   custom_dataset_metric_type: "L2"
 
