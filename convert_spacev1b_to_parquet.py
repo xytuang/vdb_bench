@@ -60,7 +60,7 @@ TEST_FILE = "test.parquet"
 NEIGHBORS_FILE = "neighbors.parquet"
 
 # How many training vectors to include (full dataset is ~1 billion;
-DEFAULT_NUM_TRAIN_VECTORS = 500_000_000
+DEFAULT_NUM_TRAIN_VECTORS = 300_000_000
 DEFAULT_BATCH_SIZE = 10_000
 # Number of equal slices the training data is split into before merging.
 # Each part process holds at most (num_train / NUM_TRAIN_PARTS) vectors in RAM.
