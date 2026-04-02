@@ -4,21 +4,17 @@ import time
 
 connections.connect(host='localhost', port='19530')
 
-print('Checking collection status...')
-state = utility.load_state('VDBBench')
-print(f'Current state: {state}')
+print('Releasing and reloading collection to trigger sync warmup')
+coll = Collection('VDBBench')
+coll.release()
+while utility.load_state('VDBBench') != LoadState.NotLoad:
+    print('.', end='', flush=True)
+    time.sleep(2)
 
-if state != LoadState.Loaded:
-    print('Collection not loaded. Loading now...')
-    coll = Collection('VDBBench')
-    coll.load()
-    print('Waiting for load to complete...')
-    
-    while utility.load_state('VDBBench') != LoadState.Loaded:
-        print('.', end='', flush=True)
-        time.sleep(5)
-    
-    print('Collection loaded!')
-else:
-    print('Collection already loaded!')
+coll.load()
+while utility.load_state('VDBBench') != LoadState.Loaded:
+    print('.', end='', flush=True)
+    time.sleep(5)
+
+print('Collection loaded!')
 

@@ -13,7 +13,7 @@ restart_milvus() {
     local retries=0
     local max_retries=20
     until sudo docker-compose ps | grep -q "healthy" || [ $retries -ge $max_retries ]; do
-        sleep 5
+        sleep 15
         retries=$((retries + 1))
         echo "    ...waiting ($retries/$max_retries)"
     done
@@ -24,6 +24,8 @@ restart_milvus() {
     fi
 
     echo ">>> Milvus is up."
+    echo ">>> Waiting additional 30s for proxy to initialize..."
+    sleep 30
 }
 
 # Helper function to drop the OS page cache
@@ -39,7 +41,7 @@ echo "========================================"
 echo " Start cache sweep test"
 echo "========================================"
 
-for run in {1..6}; do
+for run in {1..3}; do
     echo ""
     echo "--- Run: ${run} ---"
 
@@ -47,10 +49,13 @@ for run in {1..6}; do
     drop_page_cache
     python3 load_index.py
     sleep 30
+    # echo ">>> Pre-warming cache..."
+    # python3 warmup.py
+    # echo ">>> Cache warmed."
     # Patch the yaml so only this single concurrency level is tested
     # Warmup for 5 minutes
-    NUM_PER_BATCH=10000 vectordbbench milvusdiskann --config-file "$CONFIG_FILE"
-    NUM_PER_BATCH=10000 vectordbbench milvusdiskann --config-file "$CONFIG_FILE"
+    # NUM_PER_BATCH=160000 vectordbbench milvusdiskann --config-file config.yaml
+    NUM_PER_BATCH=160000 vectordbbench milvusdiskann --config-file config.yaml
     echo ">>> Run ${run} complete."
 done
 

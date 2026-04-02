@@ -480,15 +480,16 @@ queryNode:
     multipleChunkedEnable: true # Deprecated. Enable multiple chunked search
     enableGeometryCache: false # Enable geometry cache for geometry data
     tieredStorage:
+      enabled: true
       warmup:
         # options: sync, disable.
         # Specifies the timing for warming up the Tiered Storage cache.
         # - "sync": data will be loaded into the cache before a segment is considered loaded.
         # - "disable": data will not be proactively loaded into the cache, and loaded only if needed by search/query tasks.
         # Defaults to "sync", except for vector field which defaults to "disable".
-        scalarField: sync
-        scalarIndex: sync
-        vectorField: disable # cache warmup for vector field raw data is by default disabled.
+        scalarField: disable
+        scalarIndex: disable
+        vectorField: sync # cache warmup for vector field raw data is by default disabled.
         vectorIndex: sync
       # If evictionEnabled is true, a background thread will run every evictionIntervalMs to determine if an
       # eviction is necessary and the amount of data to evict from memory/disk.
@@ -497,20 +498,20 @@ queryNode:
       # - The max amount of memory/disk that can be used for cache is controlled by overloadedMemoryThresholdPercentage and diskMaxUsagePercentage.
       memoryLowWatermarkRatio: 0.75
       memoryHighWatermarkRatio: 0.8
-      diskLowWatermarkRatio: 0.75
-      diskHighWatermarkRatio: 0.8
+      diskLowWatermarkRatio: 0.85
+      diskHighWatermarkRatio: 0.9
       # Enable eviction for Tiered Storage. Defaults to false.
       # Note that if eviction is enabled, cache data loaded during sync warmup is also subject to eviction.
-      evictionEnabled: false
+      evictionEnabled: true
       # Enable background eviction for Tiered Storage. Defaults to false.
       # Background eviction is used to do periodic eviction in a separate thread.
       # And it will only work when both 'evictionEnabled' and 'backgroundEvictionEnabled' are set to 'true'.
-      backgroundEvictionEnabled: false
+      backgroundEvictionEnabled: true
       # Time in seconds after which an unaccessed cache cell will be evicted. 'backgroundEvictionEnabled' is required.
       # If a cached data hasn't been accessed again after this time since its last access, it will be evicted.
       # If set to 0, time based eviction is disabled.
       cacheTtl: 0
-      storageUsageTrackingEnabled: false # Enable storage usage tracking for Tiered Storage. Defaults to false.
+      storageUsageTrackingEnabled: true # Enable storage usage tracking for Tiered Storage. Defaults to false.
     knowhereScoreConsistency: false # Enable knowhere strong consistency score computation logic
     deleteDumpBatchSize: 10000 # Batch size for delete snapshot dump in segcore.
   loadMemoryUsageFactor: 1 # The multiply factor of calculating the memory usage while loading segments
@@ -522,10 +523,10 @@ queryNode:
     warmup: sync
   mmap:
     vectorField: true # Enable mmap for loading vector data
-    vectorIndex: false # Enable mmap for loading vector index
-    scalarField: false # Enable mmap for loading scalar data
-    scalarIndex: false # Enable mmap for loading scalar index
-    jsonShredding: true # Enable mmap for loading json stats
+    vectorIndex: true # Enable mmap for loading vector index
+    scalarField: true # Enable mmap for loading scalar data
+    scalarIndex: true # Enable mmap for loading scalar index
+    jsonShredding: false # Enable mmap for loading json stats
     # Enable memory mapping (mmap) to optimize the handling of growing raw data.
     # By activating this feature, the memory overhead associated with newly added or modified data will be significantly minimized.
     # However, this optimization may come at the cost of a slight decrease in query latency for the affected data segments.
@@ -533,11 +534,11 @@ queryNode:
     fixedFileSizeForMmapAlloc: 1 # tmp file size for mmap chunk manager
     maxDiskUsagePercentageForMmapAlloc: 50 # disk percentage used in mmap chunk manager
   lazyload:
-    enabled: false # Enable lazyload for loading data
-    waitTimeout: 30000 # max wait timeout duration in milliseconds before start to do lazyload search and retrieve
-    requestResourceTimeout: 5000 # max timeout in milliseconds for waiting request resource for lazy load, 5s by default
+    enabled: true # Enable lazyload for loading data
+    waitTimeout: 3600000 # max wait timeout duration in milliseconds before start to do lazyload search and retrieve
+    requestResourceTimeout: 120000 # max timeout in milliseconds for waiting request resource for lazy load, 5s by default
     requestResourceRetryInterval: 2000 # retry interval in milliseconds for waiting request resource for lazy load, 2s by default
-    maxRetryTimes: 1 # max retry times for lazy load, 1 by default
+    maxRetryTimes: 10 # max retry times for lazy load, 1 by default
     maxEvictPerRetry: 1 # max evict count for lazy load, 1 by default
   indexOffsetCacheEnabled: false # enable index offset cache for some scalar indexes, now is just for bitmap index, enable this param can improve performance for retrieving raw data from index
   scheduler:
