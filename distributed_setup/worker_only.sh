@@ -5,6 +5,6 @@ read token
 
 echo -n "Discovery token ca cert hash: "
 read discovery_token_ca_cert_hash
-kubeadm join k8s-master:6443 --token $token\
+sudo kubeadm join k8s-master:6443 --token $token\
     --discovery-token-ca-cert-hash $discovery_token_ca_cert_hash
 
