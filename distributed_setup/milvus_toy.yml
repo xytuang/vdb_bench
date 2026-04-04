@@ -1,0 +1,139 @@
+apiVersion: milvus.io/v1beta1
+kind: Milvus
+metadata:
+  name: my-release
+  labels:
+    app: milvus
+spec:
+  mode: cluster
+  components:
+    mixCoord:
+      replicas: 1
+      resources:
+        limits:
+          cpu: 1
+          memory: 8Gi
+      nodeSelector:
+        milvus/role: misc
+    streamingNode:
+      replicas: 1
+      resources:
+        limits:
+          cpu: 1
+          memory: 8Gi
+      nodeSelector:
+        milvus/role: misc
+    proxy:
+      replicas: 1
+      resources:
+        limits:
+          cpu: 1
+          memory: 8Gi
+      nodeSelector:
+        milvus/role: misc
+      serviceType: NodePort
+    queryNode:
+      replicas: 3
+      resources:
+        limits:
+          cpu: 4
+          memory: 4Gi
+      nodeSelector:
+        milvus/role: querynode
+    dataNode:
+      replicas: 2
+      resources:
+        limits:
+          cpu: 1
+          memory: 4Gi
+      nodeSelector:
+        milvus/role: misc
+  config:
+    queryNode:
+      segcore:
+        tieredStorage:
+          warmup:
+            scalarField: sync
+            scalarIndex: sync
+            vectorField: disable
+            vectorIndex: sync
+          evictionEnabled: true
+          backgroundEvictionEnabled: true
+          memoryLowWatermarkRatio: 0.75
+          memoryHighWatermarkRatio: 0.80
+          diskLowWatermarkRatio: 0.75
+          diskHighWatermarkRatio: 0.80
+          cacheTtl: 0
+      mmap:
+        vectorField: true # Enable mmap for loading vector data
+        vectorIndex: true # Enable mmap for loading vector index
+        scalarField: true # Enable mmap for loading scalar data
+        scalarIndex: true # Enable mmap for loading scalar index
+        jsonShredding: false # Enable mmap for loading json stats
+        # Enable memory mapping (mmap) to optimize the handling of growing raw data.
+        # By activating this feature, the memory overhead associated with newly added or modified data will be significantly minimized.
+        # However, this optimization may come at the cost of a slight decrease in query latency for the affected data segments.
+        growingMmapEnabled: false
+        fixedFileSizeForMmapAlloc: 1 # tmp file size for mmap chunk manager
+        maxDiskUsagePercentageForMmapAlloc: 50 # disk percentage used in mmap chunk manager
+      lazyload:
+        enabled: true # Enable lazyload for loading data
+        waitTimeout: 3600000 # max wait timeout duration in milliseconds before start to do lazyload search and retrieve
+        requestResourceTimeout: 120000 # max timeout in milliseconds for waiting request resource for lazy load, 5s by default
+        requestResourceRetryInterval: 2000 # retry interval in milliseconds for waiting request resource for lazy load, 2s by default
+        maxRetryTimes: 10 # max retry times for lazy load, 1 by default
+        maxEvictPerRetry: 1 # max evict count for lazy load, 1 by default
+    localStorage:
+      # Local path to where vector data are stored during a search or a query to avoid repetitve access to MinIO or S3 service.
+      # Caution: Changing this parameter after using Milvus for a period of time will affect your access to old data.
+      # It is recommended to change this parameter before starting Milvus for the first time.
+      path: /var/lib/milvus/data/
+
+
+  dependencies:
+    msgStreamType: woodpecker
+    etcd:
+      inCluster:
+        values:
+          autoCompactionMode: revision
+          autoCompactionRetention: "1000"
+          extraEnvVars:
+          - name: ETCD_QUOTA_BACKEND_BYTES
+            value: "4294967296"
+          - name: ETCD_HEARTBEAT_INTERVAL
+            value: "500"
+          - name: ETCD_ELECTION_TIMEOUT
+            value: "25000"
+          - name: ETCD_SNAPSHOT_COUNT
+            value: "10000"
+          - name: ETCD_ENABLE_PPROF
+            value: "true"
+          persistence:
+            accessMode: ReadWriteOnce
+            enabled: true
+            size: 5Gi
+            storageClass:
+          replicaCount: 3
+          resources:
+            limits:
+              cpu: 1
+              memory: 4Gi
+            requests:
+              cpu: 1
+              memory: 4Gi
+          nodeSelector:
+            milvus/role: etcd
+    storage:
+      inCluster:
+        values:
+          mode: distributed
+          resources:
+            limits:
+              cpu: 1
+              memory: 8Gi
+          persistence:
+            storageClass:
+            accessMode: ReadWriteOnce
+            size: 20Gi
+          nodeSelector:
+            milvus/role: minio
