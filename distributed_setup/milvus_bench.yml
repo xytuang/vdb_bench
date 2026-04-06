@@ -20,7 +20,7 @@ spec:
       resources:
         limits:
           cpu: 2
-          memory: 8Gi
+          memory: 100Gi
       nodeSelector:
         milvus/role: misc
     proxy:
@@ -31,23 +31,74 @@ spec:
           memory: 8Gi
       nodeSelector:
         milvus/role: misc
+      serviceType: NodePort
     queryNode:
       replicas: 3
       resources:
         limits:
           cpu: 4
-          memory: 16Gi
+          memory: 120Gi
+      volumeMounts:
+        - mountPath: /mydata
+          name: mydata
+      volumes:
+        - name: mydata
+          hostPath:
+            path: /mydata
+            type: ""
       nodeSelector:
         milvus/role: querynode
     dataNode:
-      replicas: 2
+      replicas: 1
       resources:
         limits:
-          cpu: 4
-          memory: 16Gi
+          cpu: 16
+          memory: 8Gi
       nodeSelector:
         milvus/role: misc
-  config: {}
+  config:
+    common:
+      DiskIndex:
+        MaxDegree: 56
+        SearchListSize: 100
+        PQCodeBudgetGBRatio: 0.125
+        SearchCacheBudgetGBRatio: 0.1
+        BeamWidthRatio: 4
+    queryNode:
+      enableDisk: true
+      segcore:
+        tieredStorage:
+          enabled: true
+          warmup:
+            scalarField: disable
+            scalarIndex: disable
+            vectorField: sync
+            vectorIndex: sync
+          evictionEnabled: true
+          backgroundEvictionEnabled: true
+          memoryLowWatermarkRatio: 0.75
+          memoryHighWatermarkRatio: 0.80
+          diskLowWatermarkRatio: 0.75
+          diskHighWatermarkRatio: 0.80
+          cacheTtl: 0
+      mmap:
+        vectorField: true
+        vectorIndex: true
+        scalarField: true
+        scalarIndex: true
+        jsonShredding: false
+        growingMmapEnabled: false
+        fixedFileSizeForMmapAlloc: 1
+        maxDiskUsagePercentageForMmapAlloc: 50
+      lazyload:
+        enabled: true
+        waitTimeout: 3600000
+        requestResourceTimeout: 120000
+        requestResourceRetryInterval: 2000
+        maxRetryTimes: 10
+        maxEvictPerRetry: 1
+    localStorage:
+      path: /mydata/milvus/cache/
   dependencies:
     msgStreamType: woodpecker
     etcd:
@@ -87,8 +138,7 @@ spec:
           mode: distributed
           resources:
             limits:
-              cpu: 1
-              memory: 8Gi
+              cpu: 10
           persistence:
             storageClass:
             accessMode: ReadWriteOnce
