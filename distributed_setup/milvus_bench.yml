@@ -33,7 +33,7 @@ spec:
         milvus/role: misc
       serviceType: NodePort
     queryNode:
-      replicas: 3
+      replicas: 2
       resources:
         limits:
           cpu: 4
@@ -131,7 +131,7 @@ spec:
               cpu: 1
               memory: 4Gi
           nodeSelector:
-            milvus/role: etcd
+            milvus/role: minio
     storage:
       inCluster:
         values:
