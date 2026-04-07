@@ -20,7 +20,7 @@ spec:
       resources:
         limits:
           cpu: 2
-          memory: 100Gi
+          memory: 80Gi
       nodeSelector:
         milvus/role: misc
     proxy:
@@ -33,18 +33,18 @@ spec:
         milvus/role: misc
       serviceType: NodePort
     queryNode:
-      replicas: 2
+      replicas: 1
       resources:
         limits:
-          cpu: 4
+          cpu: 32
           memory: 120Gi
       volumeMounts:
-        - mountPath: /mydata
-          name: mydata
+        - mountPath: /tmp
+          name: tmp
       volumes:
-        - name: mydata
+        - name: tmp
           hostPath:
-            path: /mydata
+            path: /tmp
             type: ""
       nodeSelector:
         milvus/role: querynode
@@ -62,7 +62,7 @@ spec:
         MaxDegree: 56
         SearchListSize: 100
         PQCodeBudgetGBRatio: 0.125
-        SearchCacheBudgetGBRatio: 0.1
+        SearchCacheBudgetGBRatio: 0.10
         BeamWidthRatio: 4
     queryNode:
       enableDisk: true
@@ -72,20 +72,20 @@ spec:
           warmup:
             scalarField: disable
             scalarIndex: disable
-            vectorField: sync
-            vectorIndex: sync
+            vectorField: disable
+            vectorIndex: disable
           evictionEnabled: true
           backgroundEvictionEnabled: true
           memoryLowWatermarkRatio: 0.75
           memoryHighWatermarkRatio: 0.80
-          diskLowWatermarkRatio: 0.75
-          diskHighWatermarkRatio: 0.80
+          diskLowWatermarkRatio: 0.60
+          diskHighWatermarkRatio: 0.70
           cacheTtl: 0
       mmap:
         vectorField: true
         vectorIndex: true
-        scalarField: true
-        scalarIndex: true
+        scalarField: false
+        scalarIndex: false
         jsonShredding: false
         growingMmapEnabled: false
         fixedFileSizeForMmapAlloc: 1
@@ -98,7 +98,7 @@ spec:
         maxRetryTimes: 10
         maxEvictPerRetry: 1
     localStorage:
-      path: /mydata/milvus/cache/
+      path: /tmp/milvus/cache/
   dependencies:
     msgStreamType: woodpecker
     etcd:
@@ -122,7 +122,7 @@ spec:
             enabled: true
             size: 20Gi
             storageClass:
-          replicaCount: 3
+          replicaCount: 1
           resources:
             limits:
               cpu: 1
@@ -135,7 +135,7 @@ spec:
     storage:
       inCluster:
         values:
-          mode: distributed
+          mode: standalone
           resources:
             limits:
               cpu: 10
