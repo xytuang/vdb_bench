@@ -12,7 +12,7 @@ spec:
       resources:
         limits:
           cpu: 2
-          memory: 8Gi
+          memory: 4Gi
       nodeSelector:
         milvus/role: misc
     streamingNode:
@@ -20,7 +20,7 @@ spec:
       resources:
         limits:
           cpu: 2
-          memory: 80Gi
+          memory: 40Gi
       nodeSelector:
         milvus/role: misc
     proxy:
@@ -28,7 +28,7 @@ spec:
       resources:
         limits:
           cpu: 2
-          memory: 8Gi
+          memory: 4Gi
       nodeSelector:
         milvus/role: misc
       serviceType: NodePort
@@ -37,14 +37,14 @@ spec:
       resources:
         limits:
           cpu: 32
-          memory: 120Gi
+          memory: 58Gi
       volumeMounts:
-        - mountPath: /tmp
-          name: tmp
+        - mountPath: /mydata
+          name: mydata
       volumes:
-        - name: tmp
+        - name: mydata
           hostPath:
-            path: /tmp
+            path: /mydata/milvus/cache
             type: ""
       nodeSelector:
         milvus/role: querynode
@@ -52,7 +52,7 @@ spec:
       replicas: 1
       resources:
         limits:
-          cpu: 16
+          cpu: 8
           memory: 8Gi
       nodeSelector:
         milvus/role: misc
@@ -76,10 +76,10 @@ spec:
             vectorIndex: disable
           evictionEnabled: true
           backgroundEvictionEnabled: true
-          memoryLowWatermarkRatio: 0.75
-          memoryHighWatermarkRatio: 0.80
-          diskLowWatermarkRatio: 0.60
-          diskHighWatermarkRatio: 0.70
+          memoryLowWatermarkRatio: 0.90
+          memoryHighWatermarkRatio: 0.95
+          diskLowWatermarkRatio: 0.90
+          diskHighWatermarkRatio: 0.95
           cacheTtl: 0
       mmap:
         vectorField: true
@@ -98,7 +98,7 @@ spec:
         maxRetryTimes: 10
         maxEvictPerRetry: 1
     localStorage:
-      path: /tmp/milvus/cache/
+      path: /mydata/milvus/cache
   dependencies:
     msgStreamType: woodpecker
     etcd:
@@ -131,7 +131,7 @@ spec:
               cpu: 1
               memory: 4Gi
           nodeSelector:
-            milvus/role: minio
+            milvus/role: etcd
     storage:
       inCluster:
         values:

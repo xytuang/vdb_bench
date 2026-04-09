@@ -4,7 +4,7 @@
 # cp /etc/hosts /etc/hosts.old
 echo "Setting hostnames"
 # names=("k8s-vdbbench" "k8s-master" "k8s-querynode1" "k8s-querynode2" "k8s-querynode3" "k8s-minio" "k8s-etcd" "k8s-misc")
-names=("k8s-vdbbench" "k8s-master" "k8s-querynode" "k8s-minio" "k8s-misc")
+names=("k8s-vdbbench" "k8s-master" "k8s-querynode" "k8s-minio" "k8s-etcd" "k8s-misc")
 
 # Use a counter to skip the first line
 i=0
