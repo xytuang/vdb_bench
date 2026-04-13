@@ -11,3 +11,6 @@ kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.5
 kubectl get pods -n cert-manager
 
 kubectl apply -f https://raw.githubusercontent.com/zilliztech/milvus-operator/main/deploy/manifests/deployment.yaml
+
+kubectl patch configmap local-path-config -n local-path-storage --type merge -p '{"data":{"config.json":"{\n        \"nodePathMap\":[\n        {\n                \"node\":\"DEFAULT_PATH_FOR_NON_LISTED_NODES\",\n                \"paths\":[\"/mydata/local-path-provisioner\"]\n        }\n        ]\n}"}}'
+
