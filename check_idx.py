@@ -1,7 +1,7 @@
 from pymilvus import MilvusClient
 
 # 1. Connect to your Milvus instance
-client = MilvusClient(uri="http://localhost:19530") # Update URI as necessary
+client = MilvusClient(uri="http://10.10.1.6:31658") # Update URI as necessary
 
 
 progress = client.describe_index("VDBBench", "vector_idx")
