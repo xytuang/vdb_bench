@@ -12,7 +12,7 @@ spec:
       resources:
         limits:
           cpu: 2
-          memory: 4Gi
+          memory: 8Gi
       nodeSelector:
         milvus/role: misc
     streamingNode:
@@ -20,7 +20,7 @@ spec:
       resources:
         limits:
           cpu: 2
-          memory: 40Gi
+          memory: 80Gi
       nodeSelector:
         milvus/role: misc
     proxy:
@@ -28,7 +28,7 @@ spec:
       resources:
         limits:
           cpu: 2
-          memory: 4Gi
+          memory: 8Gi
       nodeSelector:
         milvus/role: misc
       serviceType: NodePort
@@ -37,7 +37,7 @@ spec:
       resources:
         limits:
           cpu: 32
-          memory: 58Gi
+          memory: 80Gi
       volumeMounts:
         - mountPath: /mydata
           name: mydata
@@ -52,7 +52,7 @@ spec:
       replicas: 1
       resources:
         limits:
-          cpu: 8
+          cpu: 16
           memory: 8Gi
       nodeSelector:
         milvus/role: misc
@@ -76,8 +76,8 @@ spec:
             vectorIndex: disable
           evictionEnabled: true
           backgroundEvictionEnabled: true
-          memoryLowWatermarkRatio: 0.90
-          memoryHighWatermarkRatio: 0.95
+          memoryLowWatermarkRatio: 0.75
+          memoryHighWatermarkRatio: 0.80
           diskLowWatermarkRatio: 0.90
           diskHighWatermarkRatio: 0.95
           cacheTtl: 0
