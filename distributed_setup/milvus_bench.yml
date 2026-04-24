@@ -11,24 +11,24 @@ spec:
       replicas: 1
       resources:
         limits:
-          cpu: 2
-          memory: 8Gi
+          cpu: 4
+          memory: 16Gi
       nodeSelector:
         milvus/role: misc
     streamingNode:
       replicas: 1
       resources:
         limits:
-          cpu: 2
+          cpu: 32
           memory: 80Gi
       nodeSelector:
-        milvus/role: misc
+        milvus/role: streamingnode
     proxy:
       replicas: 1
       resources:
         limits:
-          cpu: 2
-          memory: 8Gi
+          cpu: 4
+          memory: 16Gi
       nodeSelector:
         milvus/role: misc
       serviceType: NodePort
@@ -52,10 +52,10 @@ spec:
       replicas: 1
       resources:
         limits:
-          cpu: 16
-          memory: 8Gi
+          cpu: 32
+          memory: 80Gi
       nodeSelector:
-        milvus/role: misc
+        milvus/role: datanode
   config:
     common:
       DiskIndex:
