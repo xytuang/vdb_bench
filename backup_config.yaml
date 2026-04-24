@@ -1,5 +1,5 @@
 milvusdiskann:
-  uri: "http://10.10.1.6:31658"
+  uri: "http://10.10.1.8:30172"
   db_label: "spacev1b_50m_diskann"
   drop_old: true          # drop and rebuild the collection from scratch
   load: true              # run the insert phase
