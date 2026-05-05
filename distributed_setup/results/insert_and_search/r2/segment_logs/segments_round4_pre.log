@@ -1,0 +1,38 @@
+
+============================================================
+SEGMENT SNAPSHOT — round=4  phase=pre
+timestamp: 2026-05-05T01:33:45.309036
+============================================================
+Total segments    :     84   (states: {3: 84})
+Growing  (state=2):      0   rows:            0
+Sealed   (state=3):     84   rows:   69,719,672
+  └─ DISKANN      :     47   rows:   42,081,123
+  └─ STL_SORT     :     33   rows:   26,493,344
+  └─ unindexed    :      4   rows:    1,145,205
+  └─ other        :      0   rows:            0
+────────────────────────────────────────────────────────────
+Total rows        :            69,719,672
+Unindexed %       :                  1.6%
+
+Sealed segment details (first 20):
+  seg_id=466001507226680887  rows=299,836  state=3  index=STL_SORT  node=[4]
+  seg_id=466001507198272760  rows=1,745,484  state=3  index=STL_SORT  node=[4]
+  seg_id=466001507212889978  rows=279,672  state=3  index=DISKANN  node=[4]
+  seg_id=466001507290035515  rows=294,795  state=3  index=none  node=[4]
+  seg_id=466001507220410540  rows=279,672  state=3  index=DISKANN  node=[4]
+  seg_id=466001507266813758  rows=299,836  state=3  index=STL_SORT  node=[4]
+  seg_id=466001507215240207  rows=294,795  state=3  index=DISKANN  node=[4]
+  seg_id=466001507263503642  rows=280,984  state=3  index=STL_SORT  node=[4]
+  seg_id=466001507218060279  rows=279,672  state=3  index=DISKANN  node=[4]
+  seg_id=466001507285125438  rows=279,672  state=3  index=none  node=[4]
+  seg_id=466001507219080385  rows=294,795  state=3  index=DISKANN  node=[4]
+  seg_id=466001507226990908  rows=275,943  state=3  index=DISKANN  node=[4]
+  seg_id=466001507221740667  rows=294,795  state=3  index=DISKANN  node=[4]
+  seg_id=466001507246733032  rows=273,975  state=3  index=DISKANN  node=[4]
+  seg_id=466001507251853211  rows=291,066  state=3  index=STL_SORT  node=[4]
+  seg_id=466001507264473659  rows=274,631  state=3  index=STL_SORT  node=[4]
+  seg_id=466001507261163522  rows=289,754  state=3  index=STL_SORT  node=[4]
+  seg_id=466001507205249216  rows=294,795  state=3  index=DISKANN  node=[4]
+  seg_id=466001507199051044  rows=832,668  state=3  index=DISKANN  node=[4]
+  seg_id=466001507198161656  rows=844,464  state=3  index=DISKANN  node=[4]
+  ... and 64 more

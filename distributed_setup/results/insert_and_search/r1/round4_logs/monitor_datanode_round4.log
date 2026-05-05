@@ -1,0 +1,737 @@
+
+
+──────────────────────────────────────────
+NODE MONITOR — role=datanode  round=4  node4.xytuang-303411.e6897-pg0.utah.cloudlab.us  Mon May  4 10:49:54 PM MDT 2026
+──────────────────────────────────────────
+[2026-05-04 22:49:54] interval=10s  duration=300s
+[2026-05-04 22:49:54] Kernel: 6.8.0-101-generic
+[2026-05-04 22:49:54] Uptime:  22:49:54 up 5 days,  7:49,  3 users,  load average: 19.41, 27.93, 25.92
+
+──────────────────────────────────────────
+STATIC: CPU
+──────────────────────────────────────────
+CPU(s):                                  56
+On-line CPU(s) list:                     0-55
+Model name:                              INTEL(R) XEON(R) GOLD 5512U
+Thread(s) per core:                      2
+Core(s) per socket:                      28
+Socket(s):                               1
+CPU(s) scaling MHz:                      46%
+CPU max MHz:                             3700.0000
+CPU min MHz:                             800.0000
+NUMA node0 CPU(s):                       0-55
+
+──────────────────────────────────────────
+STATIC: MEMORY
+──────────────────────────────────────────
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        19Gi       100Gi       9.0Mi       7.1Gi       106Gi
+Swap:             0B          0B          0B
+
+──────────────────────────────────────────
+STATIC: DISK
+──────────────────────────────────────────
+Filesystem                            Size  Used Avail Use% Mounted on
+tmpfs                                  13G  2.3M   13G   1% /run
+efivarfs                              304K  134K  166K  45% /sys/firmware/efi/efivars
+/dev/nvme0n1p3                         63G  8.5G   51G  15% /
+tmpfs                                  63G     0   63G   0% /dev/shm
+tmpfs                                 5.0M     0  5.0M   0% /run/lock
+/dev/nvme0n1p1                        256M   11M  246M   5% /boot/efi
+/dev/mapper/emulab-node4--bs          1.4T   21M  1.3T   1% /mydata
+ops.utah.cloudlab.us:/share            13T   25G   13T   1% /share
+ops.utah.cloudlab.us:/proj/e6897-PG0  100G   50G   51G  50% /proj/e6897-PG0
+tmpfs                                  13G   12K   13G   1% /run/user/20042
+tmpfs                                 126G   12K  126G   1% /var/lib/kubelet/pods/f83c5d8b-7422-4518-babd-aa0fe71eece3/volumes/kubernetes.io~projected/kube-api-access-sg76v
+tmpfs                                 126G   12K  126G   1% /var/lib/kubelet/pods/398597d4-a2a4-4145-9e60-9f9afebfe50e/volumes/kubernetes.io~projected/kube-api-access-xbqk9
+tmpfs                                 126G   12K  126G   1% /var/lib/kubelet/pods/c1f543d3-cb2e-4399-ac99-7cbca90562b9/volumes/kubernetes.io~projected/kube-api-access-rfw7t
+NAME                 MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+nvme0n1              259:0    0 745.2G  0 disk 
+├─nvme0n1p1          259:2    0   256M  0 part /boot/efi
+├─nvme0n1p2          259:3    0     1M  0 part 
+├─nvme0n1p3          259:4    0    64G  0 part /
+├─nvme0n1p99         259:5    0     8G  0 part 
+└─nvme0n1p4          259:6    0   673G  0 part 
+  └─emulab-node4--bs 252:0    0   1.4T  0 lvm  /mydata
+nvme1n1              259:1    0 745.2G  0 disk 
+└─emulab-node4--bs   252:0    0   1.4T  0 lvm  /mydata
+
+──────────────────────────────────────────
+STATIC: NETWORK INTERFACES
+──────────────────────────────────────────
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+enp23s0f0np0     UP             10.10.1.5/24 fe80::42a6:b7ff:fec3:43e8/64 
+enp23s0f1np1     DOWN           
+eno12399np0      UP             128.110.220.2/21 metric 1024 fe80::323e:a7ff:fe1d:2170/64 
+eno12409np1      DOWN           
+tunl0@NONE       UNKNOWN        10.244.121.192/32 
+caliafd716d4d7c@if3 UP             fe80::c05e:caff:fe01:32ce/64 
+
+──────────────────────────────────────────
+CPU SCALING GOVERNOR
+──────────────────────────────────────────
+/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor: powersave
+/sys/devices/system/cpu/cpu1/cpufreq/scaling_governor: powersave
+/sys/devices/system/cpu/cpu2/cpufreq/scaling_governor: powersave
+/sys/devices/system/cpu/cpu3/cpufreq/scaling_governor: powersave
+
+──────────────────────────────────────────
+MILVUS DATA DIR
+──────────────────────────────────────────
+du: cannot access '/mydata/milvus/': No such file or directory
+
+──────────────────────────────────────────
+TIME-SERIES METRICS (every 10s)
+──────────────────────────────────────────
+
+=== SAMPLE 1 @ 2026-05-04 22:49:54 ===
+--- CPU (top snapshot) ---
+top - 22:49:55 up 5 days,  7:49,  3 users,  load average: 19.41, 27.93, 25.92
+Tasks: 675 total,   2 running, 673 sleeping,   0 stopped,   0 zombie
+%Cpu(s): 16.7 us,  3.4 sy,  0.0 ni, 79.3 id,  0.0 wa,  0.0 hi,  0.5 si,  0.0 st 
+MiB Mem : 128313.0 total, 102845.9 free,  19416.8 used,   7273.6 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 108896.2 avail Mem 
+--- CPU utilization % ---
+10:49:55 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+10:49:56 PM  all   14.56    0.00    4.17    0.00    0.00    0.43    0.00    0.00    0.00   80.84
+Average:     all   14.56    0.00    4.17    0.00    0.00    0.43    0.00    0.00    0.00   80.84
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        19Gi        99Gi       9.0Mi       7.1Gi       105Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.13    2.00    0.06    0.00    0.00   97.81
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.04      0.94     0.01  19.26    0.13    21.91    9.62   1055.56     1.40  12.67   15.72   109.76    0.06   1762.12     0.00   0.00    0.26 31162.88    0.00    0.00    0.15   0.07
+nvme1n1          0.00      0.03     0.00   0.00    0.20    14.02    0.23     28.88     0.01   2.63    0.85   127.47    0.01   1668.90     0.00   0.00    0.73 128991.89    0.00    0.00    0.00   0.00
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 12 KB/s  TX 0 KB/s
+
+=== SAMPLE 2 @ 2026-05-04 22:50:06 ===
+--- CPU (top snapshot) ---
+top - 22:50:06 up 5 days,  7:50,  3 users,  load average: 22.57, 28.32, 26.07
+Tasks: 674 total,   1 running, 673 sleeping,   0 stopped,   0 zombie
+%Cpu(s): 14.3 us,  5.5 sy,  0.0 ni, 79.9 id,  0.0 wa,  0.0 hi,  0.3 si,  0.0 st 
+MiB Mem : 128313.0 total,  99593.0 free,  21904.0 used,   8039.2 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 106409.0 avail Mem 
+--- CPU utilization % ---
+10:50:06 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+10:50:07 PM  all   11.86   38.47    3.49    0.00    0.00    0.30    0.00    0.00    0.00   45.88
+Average:     all   11.86   38.47    3.49    0.00    0.00    0.30    0.00    0.00    0.00   45.88
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        22Gi        96Gi       9.0Mi       7.9Gi       103Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.13    2.00    0.06    0.00    0.00   97.81
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.04      0.94     0.01  19.26    0.13    21.91    9.63   1057.25     1.40  12.66   15.72   109.78    0.06   1762.08     0.00   0.00    0.26 31162.88    0.00    0.00    0.15   0.07
+nvme1n1          0.00      0.03     0.00   0.00    0.20    14.02    0.23     28.88     0.01   2.63    0.85   127.47    0.01   1668.85     0.00   0.00    0.73 128991.89    0.00    0.00    0.00   0.00
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 12 KB/s  TX 0 KB/s
+
+=== SAMPLE 3 @ 2026-05-04 22:50:17 ===
+--- CPU (top snapshot) ---
+top - 22:50:17 up 5 days,  7:50,  3 users,  load average: 23.80, 28.40, 26.12
+Tasks: 676 total,   1 running, 675 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.2 us,  0.2 sy, 57.0 ni, 42.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total, 100144.7 free,  20982.1 used,   8409.4 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 107330.9 avail Mem 
+--- CPU utilization % ---
+10:50:17 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+10:50:18 PM  all    0.14   57.12    0.11    0.00    0.00    0.00    0.00    0.00    0.00   42.63
+Average:     all    0.14   57.12    0.11    0.00    0.00    0.00    0.00    0.00    0.00   42.63
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        20Gi        97Gi       9.0Mi       8.2Gi       104Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.13    2.00    0.06    0.00    0.00   97.81
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.04      0.94     0.01  19.26    0.13    21.91    9.64   1058.05     1.40  12.66   15.71   109.79    0.06   1762.04     0.00   0.00    0.26 31162.88    0.00    0.00    0.15   0.07
+nvme1n1          0.00      0.03     0.00   0.00    0.20    14.02    0.23     28.88     0.01   2.63    0.85   127.47    0.01   1668.81     0.00   0.00    0.73 128991.89    0.00    0.00    0.00   0.00
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 14 KB/s  TX 0 KB/s
+
+=== SAMPLE 4 @ 2026-05-04 22:50:28 ===
+--- CPU (top snapshot) ---
+top - 22:50:28 up 5 days,  7:50,  3 users,  load average: 25.93, 28.64, 26.23
+Tasks: 675 total,   1 running, 674 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  3.4 us,  1.1 sy, 54.1 ni, 40.9 id,  0.5 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total, 101626.2 free,  19412.0 used,   8498.0 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 108901.0 avail Mem 
+--- CPU utilization % ---
+10:50:28 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+10:50:29 PM  all    2.74   53.97    0.79    0.00    0.00    0.02    0.00    0.00    0.00   42.48
+Average:     all    2.74   53.97    0.79    0.00    0.00    0.02    0.00    0.00    0.00   42.48
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        18Gi        99Gi       9.0Mi       8.3Gi       106Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.13    2.00    0.06    0.00    0.00   97.81
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.04      0.94     0.01  19.26    0.13    21.91    9.64   1058.22     1.40  12.66   15.71   109.79    0.06   1761.99     0.00   0.00    0.26 31162.88    0.00    0.00    0.15   0.07
+nvme1n1          0.00      0.03     0.00   0.00    0.20    14.02    0.23     28.88     0.01   2.63    0.85   127.47    0.01   1668.77     0.00   0.00    0.73 128991.89    0.00    0.00    0.00   0.00
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 14 KB/s  TX 0 KB/s
+
+=== SAMPLE 5 @ 2026-05-04 22:50:39 ===
+--- CPU (top snapshot) ---
+top - 22:50:40 up 5 days,  7:50,  3 users,  load average: 26.87, 28.75, 26.30
+Tasks: 672 total,   1 running, 671 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  3.1 us,  0.8 sy, 52.8 ni, 43.4 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total, 102516.7 free,  18521.5 used,   8498.0 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 109791.5 avail Mem 
+--- CPU utilization % ---
+10:50:40 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+10:50:41 PM  all    2.12   54.82    0.48    0.00    0.00    0.02    0.00    0.00    0.00   42.56
+Average:     all    2.12   54.82    0.48    0.00    0.00    0.02    0.00    0.00    0.00   42.56
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        18Gi       100Gi       9.0Mi       8.3Gi       107Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.13    2.00    0.06    0.00    0.00   97.81
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.04      0.94     0.01  19.26    0.13    21.91    9.64   1058.20     1.40  12.66   15.71   109.79    0.06   1761.95     0.00   0.00    0.26 31162.88    0.00    0.00    0.15   0.07
+nvme1n1          0.00      0.03     0.00   0.00    0.20    14.02    0.23     28.88     0.01   2.63    0.85   127.47    0.01   1668.73     0.00   0.00    0.73 128991.89    0.00    0.00    0.00   0.00
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 9 KB/s  TX 0 KB/s
+
+=== SAMPLE 6 @ 2026-05-04 22:50:51 ===
+--- CPU (top snapshot) ---
+top - 22:50:51 up 5 days,  7:50,  3 users,  load average: 28.12, 28.96, 26.39
+Tasks: 671 total,   1 running, 670 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  2.7 us,  0.8 sy, 54.1 ni, 42.5 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total, 102696.7 free,  18341.5 used,   8498.1 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 109971.5 avail Mem 
+--- CPU utilization % ---
+10:50:51 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+10:50:52 PM  all    2.03   54.91    0.45    0.00    0.00    0.00    0.00    0.00    0.00   42.62
+Average:     all    2.03   54.91    0.45    0.00    0.00    0.00    0.00    0.00    0.00   42.62
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        17Gi       100Gi       9.0Mi       8.3Gi       107Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.13    2.01    0.06    0.00    0.00   97.80
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.04      0.94     0.01  19.26    0.13    21.91    9.64   1058.17     1.40  12.66   15.71   109.79    0.06   1761.91     0.00   0.00    0.26 31162.88    0.00    0.00    0.15   0.07
+nvme1n1          0.00      0.03     0.00   0.00    0.20    14.02    0.23     28.88     0.01   2.63    0.85   127.47    0.01   1668.69     0.00   0.00    0.73 128991.89    0.00    0.00    0.00   0.00
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 10 KB/s  TX 0 KB/s
+
+=== SAMPLE 7 @ 2026-05-04 22:51:02 ===
+--- CPU (top snapshot) ---
+top - 22:51:02 up 5 days,  7:51,  3 users,  load average: 29.26, 29.17, 26.49
+Tasks: 672 total,   1 running, 671 sleeping,   0 stopped,   0 zombie
+%Cpu(s): 12.2 us,  0.8 sy, 46.1 ni, 40.9 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total, 101173.6 free,  19280.0 used,   9084.8 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 109033.0 avail Mem 
+--- CPU utilization % ---
+10:51:02 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+10:51:03 PM  all   14.47   40.86    1.43    0.00    0.00    0.14    0.00    0.00    0.00   43.09
+Average:     all   14.47   40.86    1.43    0.00    0.00    0.14    0.00    0.00    0.00   43.09
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        19Gi        98Gi       9.0Mi       8.9Gi       105Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.13    2.01    0.06    0.00    0.00   97.80
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.04      0.94     0.01  19.26    0.13    21.91    9.65   1059.15     1.40  12.66   15.69   109.80    0.06   1761.86     0.00   0.00    0.26 31162.88    0.00    0.00    0.15   0.07
+nvme1n1          0.00      0.03     0.00   0.00    0.20    14.02    0.23     28.88     0.01   2.63    0.85   127.47    0.01   1668.65     0.00   0.00    0.73 128991.89    0.00    0.00    0.00   0.00
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 10 KB/s  TX 0 KB/s
+
+=== SAMPLE 8 @ 2026-05-04 22:51:13 ===
+--- CPU (top snapshot) ---
+top - 22:51:13 up 5 days,  7:51,  3 users,  load average: 30.34, 29.43, 26.61
+Tasks: 665 total,   1 running, 664 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.3 sy, 57.2 ni, 42.5 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total, 100911.2 free,  20163.2 used,   8461.8 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 108149.8 avail Mem 
+--- CPU utilization % ---
+10:51:13 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+10:51:14 PM  all    0.11   57.16    0.13    0.00    0.00    0.00    0.00    0.00    0.00   42.61
+Average:     all    0.11   57.16    0.13    0.00    0.00    0.00    0.00    0.00    0.00   42.61
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        19Gi        98Gi       9.0Mi       8.3Gi       105Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.13    2.01    0.06    0.00    0.00   97.80
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.04      0.94     0.01  19.26    0.13    21.91    9.65   1059.85     1.40  12.65   15.69   109.81    0.06   1761.82     0.00   0.00    0.26 31162.88    0.00    0.00    0.15   0.07
+nvme1n1          0.00      0.03     0.00   0.00    0.20    14.02    0.23     28.88     0.01   2.63    0.85   127.47    0.01   1668.61     0.00   0.00    0.73 128991.89    0.00    0.00    0.00   0.00
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 11 KB/s  TX 0 KB/s
+
+=== SAMPLE 9 @ 2026-05-04 22:51:25 ===
+--- CPU (top snapshot) ---
+top - 22:51:25 up 5 days,  7:51,  3 users,  load average: 30.76, 29.54, 26.68
+Tasks: 668 total,   1 running, 667 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  3.1 us,  0.8 sy, 54.2 ni, 41.9 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total, 101895.1 free,  19138.1 used,   8502.9 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 109174.9 avail Mem 
+--- CPU utilization % ---
+10:51:25 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+10:51:26 PM  all    2.34   54.43    0.59    0.00    0.00    0.02    0.00    0.00    0.00   42.62
+Average:     all    2.34   54.43    0.59    0.00    0.00    0.02    0.00    0.00    0.00   42.62
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        18Gi        99Gi       9.0Mi       8.3Gi       106Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.13    2.01    0.06    0.00    0.00   97.80
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.04      0.94     0.01  19.26    0.13    21.91    9.65   1059.92     1.40  12.65   15.68   109.81    0.06   1761.78     0.00   0.00    0.26 31162.88    0.00    0.00    0.15   0.07
+nvme1n1          0.00      0.03     0.00   0.00    0.20    14.02    0.23     28.88     0.01   2.63    0.85   127.47    0.01   1668.57     0.00   0.00    0.73 128991.89    0.00    0.00    0.00   0.00
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 9 KB/s  TX 0 KB/s
+
+=== SAMPLE 10 @ 2026-05-04 22:51:36 ===
+--- CPU (top snapshot) ---
+top - 22:51:36 up 5 days,  7:51,  3 users,  load average: 31.26, 29.69, 26.76
+Tasks: 668 total,   1 running, 667 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  2.7 us,  0.8 sy, 54.1 ni, 42.5 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total, 102214.0 free,  18819.2 used,   8503.0 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 109493.8 avail Mem 
+--- CPU utilization % ---
+10:51:36 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+10:51:37 PM  all    2.11   54.84    0.54    0.00    0.00    0.00    0.00    0.00    0.00   42.51
+Average:     all    2.11   54.84    0.54    0.00    0.00    0.00    0.00    0.00    0.00   42.51
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        18Gi        99Gi       9.0Mi       8.3Gi       107Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.13    2.01    0.06    0.00    0.00   97.80
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.04      0.94     0.01  19.26    0.13    21.91    9.65   1059.89     1.40  12.65   15.68   109.81    0.06   1761.74     0.00   0.00    0.26 31162.88    0.00    0.00    0.15   0.07
+nvme1n1          0.00      0.03     0.00   0.00    0.20    14.02    0.23     28.88     0.01   2.63    0.85   127.47    0.01   1668.53     0.00   0.00    0.73 128991.89    0.00    0.00    0.00   0.00
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 9 KB/s  TX 0 KB/s
+
+=== SAMPLE 11 @ 2026-05-04 22:51:47 ===
+--- CPU (top snapshot) ---
+top - 22:51:47 up 5 days,  7:51,  3 users,  load average: 31.70, 29.84, 26.84
+Tasks: 666 total,   1 running, 665 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  2.2 us,  0.6 sy, 54.5 ni, 42.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total, 102338.9 free,  18694.3 used,   8503.0 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 109618.8 avail Mem 
+--- CPU utilization % ---
+10:51:47 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+10:51:48 PM  all    2.02   54.83    0.70    0.00    0.00    0.00    0.00    0.00    0.00   42.45
+Average:     all    2.02   54.83    0.70    0.00    0.00    0.00    0.00    0.00    0.00   42.45
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        18Gi        99Gi       9.0Mi       8.3Gi       107Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.13    2.01    0.06    0.00    0.00   97.80
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.04      0.94     0.01  19.26    0.13    21.91    9.65   1059.87     1.40  12.65   15.68   109.81    0.06   1761.69     0.00   0.00    0.26 31162.88    0.00    0.00    0.15   0.07
+nvme1n1          0.00      0.03     0.00   0.00    0.20    14.02    0.23     28.88     0.01   2.63    0.85   127.47    0.01   1668.49     0.00   0.00    0.73 128991.89    0.00    0.00    0.00   0.00
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 10 KB/s  TX 0 KB/s
+
+=== SAMPLE 12 @ 2026-05-04 22:51:58 ===
+--- CPU (top snapshot) ---
+top - 22:51:59 up 5 days,  7:51,  3 users,  load average: 32.07, 30.01, 26.94
+Tasks: 667 total,   1 running, 666 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  1.2 us,  2.7 sy, 54.1 ni, 41.7 id,  0.0 wa,  0.0 hi,  0.3 si,  0.0 st 
+MiB Mem : 128313.0 total, 101672.4 free,  19039.5 used,   8824.3 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 109273.6 avail Mem 
+--- CPU utilization % ---
+10:51:59 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+10:52:00 PM  all    5.91   49.70    1.77    0.00    0.00    0.05    0.00    0.00    0.00   42.57
+Average:     all    5.91   49.70    1.77    0.00    0.00    0.05    0.00    0.00    0.00   42.57
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        18Gi        98Gi       9.0Mi       8.9Gi       106Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.13    2.01    0.06    0.00    0.00   97.80
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.04      0.94     0.01  19.26    0.13    21.91    9.65   1059.84     1.40  12.65   15.68   109.81    0.06   1761.65     0.00   0.00    0.26 31162.88    0.00    0.00    0.15   0.07
+nvme1n1          0.00      0.03     0.00   0.00    0.20    14.02    0.23     28.88     0.01   2.63    0.85   127.47    0.01   1668.45     0.00   0.00    0.73 128991.89    0.00    0.00    0.00   0.00
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 14 KB/s  TX 0 KB/s
+
+=== SAMPLE 13 @ 2026-05-04 22:52:10 ===
+--- CPU (top snapshot) ---
+top - 22:52:10 up 5 days,  7:52,  3 users,  load average: 30.29, 29.68, 26.87
+Tasks: 666 total,   1 running, 665 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.2 sy, 57.1 ni, 42.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total, 100736.5 free,  20332.4 used,   8467.1 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 107980.6 avail Mem 
+--- CPU utilization % ---
+10:52:10 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+10:52:11 PM  all    0.02   57.18    0.02    0.00    0.00    0.00    0.00    0.00    0.00   42.78
+Average:     all    0.02   57.18    0.02    0.00    0.00    0.00    0.00    0.00    0.00   42.78
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        19Gi        98Gi       9.0Mi       8.3Gi       105Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.13    2.01    0.06    0.00    0.00   97.80
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.04      0.94     0.01  19.26    0.13    21.91    9.67   1061.88     1.40  12.64   15.66   109.84    0.06   1761.61     0.00   0.00    0.26 31162.88    0.00    0.00    0.15   0.07
+nvme1n1          0.00      0.03     0.00   0.00    0.20    14.02    0.23     28.87     0.01   2.63    0.85   127.47    0.01   1668.41     0.00   0.00    0.73 128991.89    0.00    0.00    0.00   0.00
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 13 KB/s  TX 0 KB/s
+
+=== SAMPLE 14 @ 2026-05-04 22:52:21 ===
+--- CPU (top snapshot) ---
+top - 22:52:21 up 5 days,  7:52,  3 users,  load average: 30.56, 29.76, 26.93
+Tasks: 663 total,   1 running, 662 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  2.0 us,  2.0 sy, 54.7 ni, 41.3 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total, 101732.6 free,  19294.5 used,   8509.0 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 109018.5 avail Mem 
+--- CPU utilization % ---
+10:52:21 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+10:52:22 PM  all    2.61   54.30    0.81    0.00    0.00    0.00    0.00    0.00    0.00   42.29
+Average:     all    2.61   54.30    0.81    0.00    0.00    0.00    0.00    0.00    0.00   42.29
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        18Gi        99Gi       9.0Mi       8.3Gi       106Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.13    2.02    0.06    0.00    0.00   97.79
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.04      0.94     0.01  19.26    0.13    21.91    9.67   1061.88     1.40  12.64   15.66   109.83    0.06   1761.56     0.00   0.00    0.26 31162.88    0.00    0.00    0.15   0.07
+nvme1n1          0.00      0.03     0.00   0.00    0.20    14.02    0.23     28.87     0.01   2.63    0.85   127.47    0.01   1668.37     0.00   0.00    0.73 128991.89    0.00    0.00    0.00   0.00
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 10 KB/s  TX 0 KB/s
+
+=== SAMPLE 15 @ 2026-05-04 22:52:32 ===
+--- CPU (top snapshot) ---
+top - 22:52:32 up 5 days,  7:52,  3 users,  load average: 30.86, 29.85, 26.99
+Tasks: 666 total,   1 running, 665 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  2.0 us,  0.6 sy, 55.4 ni, 42.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total, 101930.2 free,  19096.8 used,   8509.0 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 109216.2 avail Mem 
+--- CPU utilization % ---
+10:52:32 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+10:52:33 PM  all    2.06   54.85    0.56    0.00    0.00    0.00    0.00    0.00    0.00   42.53
+Average:     all    2.06   54.85    0.56    0.00    0.00    0.00    0.00    0.00    0.00   42.53
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        18Gi        99Gi       9.0Mi       8.3Gi       106Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.13    2.02    0.06    0.00    0.00   97.79
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.04      0.94     0.01  19.26    0.13    21.91    9.67   1061.92     1.40  12.64   15.66   109.84    0.06   1761.52     0.00   0.00    0.26 31162.88    0.00    0.00    0.15   0.07
+nvme1n1          0.00      0.03     0.00   0.00    0.20    14.02    0.23     28.87     0.01   2.63    0.85   127.47    0.01   1668.32     0.00   0.00    0.73 128991.89    0.00    0.00    0.00   0.00
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 10 KB/s  TX 0 KB/s
+
+=== SAMPLE 16 @ 2026-05-04 22:52:43 ===
+--- CPU (top snapshot) ---
+top - 22:52:44 up 5 days,  7:52,  3 users,  load average: 31.41, 30.02, 27.09
+Tasks: 667 total,   1 running, 666 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  3.0 us,  0.8 sy, 54.9 ni, 41.3 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total, 102251.3 free,  18775.7 used,   8509.1 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 109537.3 avail Mem 
+--- CPU utilization % ---
+10:52:44 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+10:52:45 PM  all    2.21   54.75    0.54    0.00    0.00    0.00    0.00    0.00    0.00   42.50
+Average:     all    2.21   54.75    0.54    0.00    0.00    0.00    0.00    0.00    0.00   42.50
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        18Gi        99Gi       9.0Mi       8.3Gi       106Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.13    2.02    0.06    0.00    0.00   97.79
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.04      0.94     0.01  19.26    0.13    21.91    9.67   1061.89     1.40  12.64   15.66   109.83    0.06   1761.48     0.00   0.00    0.26 31162.88    0.00    0.00    0.15   0.07
+nvme1n1          0.00      0.03     0.00   0.00    0.20    14.02    0.23     28.87     0.01   2.63    0.85   127.47    0.01   1668.28     0.00   0.00    0.73 128991.89    0.00    0.00    0.00   0.00
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 10 KB/s  TX 0 KB/s
+
+=== SAMPLE 17 @ 2026-05-04 22:52:55 ===
+--- CPU (top snapshot) ---
+top - 22:52:55 up 5 days,  7:52,  3 users,  load average: 31.81, 30.15, 27.16
+Tasks: 665 total,   1 running, 664 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  3.3 us,  1.1 sy, 52.9 ni, 42.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total, 102244.6 free,  18782.4 used,   8509.1 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 109530.6 avail Mem 
+--- CPU utilization % ---
+10:52:55 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+10:52:56 PM  all    3.02   53.75    0.72    0.00    0.00    0.02    0.00    0.00    0.00   42.49
+Average:     all    3.02   53.75    0.72    0.00    0.00    0.02    0.00    0.00    0.00   42.49
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        18Gi        99Gi       9.0Mi       8.3Gi       106Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.13    2.02    0.06    0.00    0.00   97.79
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.04      0.94     0.01  19.26    0.13    21.91    9.67   1061.87     1.40  12.64   15.66   109.83    0.06   1761.43     0.00   0.00    0.26 31162.88    0.00    0.00    0.15   0.07
+nvme1n1          0.00      0.03     0.00   0.00    0.20    14.02    0.23     28.87     0.01   2.63    0.85   127.47    0.01   1668.24     0.00   0.00    0.73 128991.89    0.00    0.00    0.00   0.00
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 10 KB/s  TX 0 KB/s
+
+=== SAMPLE 18 @ 2026-05-04 22:53:06 ===
+--- CPU (top snapshot) ---
+top - 22:53:06 up 5 days,  7:53,  3 users,  load average: 29.42, 29.71, 27.05
+Tasks: 667 total,   1 running, 666 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.2 us,  0.2 sy, 57.0 ni, 42.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total, 100362.7 free,  20711.1 used,   8462.2 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 107601.9 avail Mem 
+--- CPU utilization % ---
+10:53:06 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+10:53:07 PM  all    0.02   57.13    0.20    0.29    0.00    0.02    0.00    0.00    0.00   42.35
+Average:     all    0.02   57.13    0.20    0.29    0.00    0.02    0.00    0.00    0.00   42.35
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        20Gi        98Gi       9.0Mi       8.3Gi       105Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.13    2.02    0.06    0.00    0.00   97.79
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.04      0.94     0.01  19.26    0.13    21.91    9.68   1063.91     1.40  12.63   15.64   109.86    0.06   1761.39     0.00   0.00    0.26 31162.88    0.00    0.00    0.15   0.07
+nvme1n1          0.00      0.03     0.00   0.00    0.20    14.02    0.23     28.87     0.01   2.63    0.85   127.47    0.01   1668.20     0.00   0.00    0.73 128991.89    0.00    0.00    0.00   0.00
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 11 KB/s  TX 0 KB/s
+
+=== SAMPLE 19 @ 2026-05-04 22:53:17 ===
+--- CPU (top snapshot) ---
+top - 22:53:17 up 5 days,  7:53,  3 users,  load average: 29.82, 29.79, 27.11
+Tasks: 664 total,   1 running, 663 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.3 us,  0.2 sy, 56.9 ni, 42.5 id,  0.0 wa,  0.0 hi,  0.2 si,  0.0 st 
+MiB Mem : 128313.0 total, 101754.2 free,  19319.5 used,   8462.4 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 108993.5 avail Mem 
+--- CPU utilization % ---
+10:53:17 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+10:53:18 PM  all    0.43   56.12    0.45    0.00    0.00    0.02    0.00    0.00    0.00   42.99
+Average:     all    0.43   56.12    0.45    0.00    0.00    0.02    0.00    0.00    0.00   42.99
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        18Gi        99Gi       9.0Mi       8.3Gi       106Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.13    2.02    0.06    0.00    0.00   97.79
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.04      0.94     0.01  19.26    0.13    21.91    9.68   1063.88     1.40  12.63   15.64   109.86    0.06   1761.35     0.00   0.00    0.26 31162.88    0.00    0.00    0.15   0.07
+nvme1n1          0.00      0.03     0.00   0.00    0.20    14.02    0.23     28.87     0.01   2.63    0.85   127.47    0.01   1668.16     0.00   0.00    0.73 128991.89    0.00    0.00    0.00   0.00
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 14 KB/s  TX 0 KB/s
+
+=== SAMPLE 20 @ 2026-05-04 22:53:28 ===
+--- CPU (top snapshot) ---
+top - 22:53:29 up 5 days,  7:53,  3 users,  load average: 30.76, 30.00, 27.22
+Tasks: 666 total,   1 running, 665 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  2.5 us,  0.6 sy, 54.7 ni, 42.2 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total, 101894.8 free,  19137.8 used,   8503.5 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 109175.2 avail Mem 
+--- CPU utilization % ---
+10:53:29 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+10:53:30 PM  all    1.87   54.95    0.47    0.00    0.00    0.00    0.00    0.00    0.00   42.72
+Average:     all    1.87   54.95    0.47    0.00    0.00    0.00    0.00    0.00    0.00   42.72
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        18Gi        99Gi       9.0Mi       8.3Gi       106Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.13    2.02    0.06    0.00    0.00   97.79
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.04      0.94     0.01  19.26    0.13    21.91    9.68   1063.95     1.40  12.63   15.64   109.86    0.06   1761.30     0.00   0.00    0.26 31162.88    0.00    0.00    0.15   0.07
+nvme1n1          0.00      0.03     0.00   0.00    0.20    14.02    0.23     28.87     0.01   2.63    0.85   127.47    0.01   1668.12     0.00   0.00    0.73 128991.89    0.00    0.00    0.00   0.00
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 13 KB/s  TX 0 KB/s
+
+=== SAMPLE 21 @ 2026-05-04 22:53:40 ===
+--- CPU (top snapshot) ---
+top - 22:53:40 up 5 days,  7:53,  3 users,  load average: 30.95, 30.06, 27.27
+Tasks: 666 total,   1 running, 665 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  2.0 us,  0.8 sy, 55.6 ni, 41.6 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total, 102242.4 free,  18790.1 used,   8503.6 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 109522.9 avail Mem 
+--- CPU utilization % ---
+10:53:40 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+10:53:41 PM  all    2.31   54.62    0.63    0.00    0.00    0.00    0.00    0.00    0.00   42.44
+Average:     all    2.31   54.62    0.63    0.00    0.00    0.00    0.00    0.00    0.00   42.44
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        18Gi        99Gi       9.0Mi       8.3Gi       106Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.13    2.02    0.06    0.00    0.00   97.78
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.04      0.94     0.01  19.26    0.13    21.91    9.68   1063.92     1.40  12.63   15.64   109.86    0.06   1761.26     0.00   0.00    0.26 31162.88    0.00    0.00    0.15   0.07
+nvme1n1          0.00      0.03     0.00   0.00    0.20    14.02    0.23     28.87     0.01   2.63    0.85   127.47    0.01   1668.08     0.00   0.00    0.73 128991.89    0.00    0.00    0.00   0.00
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 11 KB/s  TX 0 KB/s
+
+=== SAMPLE 22 @ 2026-05-04 22:53:51 ===
+--- CPU (top snapshot) ---
+top - 22:53:51 up 5 days,  7:53,  3 users,  load average: 31.57, 30.23, 27.35
+Tasks: 664 total,   1 running, 663 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  2.8 us,  0.9 sy, 54.3 ni, 41.9 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total, 102286.9 free,  18745.6 used,   8503.6 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 109567.4 avail Mem 
+--- CPU utilization % ---
+10:53:51 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+10:53:52 PM  all    2.80   54.21    0.47    0.00    0.00    0.02    0.00    0.00    0.00   42.50
+Average:     all    2.80   54.21    0.47    0.00    0.00    0.02    0.00    0.00    0.00   42.50
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        18Gi        99Gi       9.0Mi       8.3Gi       107Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.13    2.03    0.06    0.00    0.00   97.78
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.04      0.94     0.01  19.26    0.13    21.91    9.68   1063.90     1.40  12.64   15.64   109.86    0.06   1761.22     0.00   0.00    0.26 31162.88    0.00    0.00    0.15   0.07
+nvme1n1          0.00      0.03     0.00   0.00    0.20    14.02    0.23     28.87     0.01   2.63    0.85   127.47    0.01   1668.04     0.00   0.00    0.73 128991.89    0.00    0.00    0.00   0.00
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 10 KB/s  TX 0 KB/s
+
+=== SAMPLE 23 @ 2026-05-04 22:54:02 ===
+--- CPU (top snapshot) ---
+top - 22:54:02 up 5 days,  7:54,  3 users,  load average: 28.56, 29.64, 27.19
+Tasks: 666 total,   1 running, 665 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  1.8 us,  2.9 sy, 48.7 ni, 46.6 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total, 100804.8 free,  20295.5 used,   8435.8 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 108017.5 avail Mem 
+--- CPU utilization % ---
+10:54:02 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+10:54:03 PM  all    1.30   55.17    0.57    0.00    0.00    0.04    0.00    0.00    0.00   42.92
+Average:     all    1.30   55.17    0.57    0.00    0.00    0.04    0.00    0.00    0.00   42.92
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        20Gi        97Gi       9.0Mi       8.3Gi       104Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.13    2.03    0.06    0.00    0.00   97.78
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.04      0.94     0.01  19.26    0.13    21.91    9.69   1064.75     1.40  12.63   15.63   109.87    0.06   1761.18     0.00   0.00    0.26 31162.88    0.00    0.00    0.15   0.07
+nvme1n1          0.00      0.03     0.00   0.00    0.20    14.02    0.23     28.87     0.01   2.63    0.85   127.47    0.01   1668.00     0.00   0.00    0.73 128991.89    0.00    0.00    0.00   0.00
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 14 KB/s  TX 0 KB/s
+
+=== SAMPLE 24 @ 2026-05-04 22:54:13 ===
+--- CPU (top snapshot) ---
+top - 22:54:14 up 5 days,  7:54,  3 users,  load average: 29.39, 29.77, 27.28
+Tasks: 667 total,   3 running, 664 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.2 us,  0.2 sy, 57.3 ni, 42.4 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total, 101662.2 free,  19413.5 used,   8460.3 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 108899.5 avail Mem 
+--- CPU utilization % ---
+10:54:14 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+10:54:15 PM  all    0.14   57.12    0.12    0.00    0.00    0.02    0.00    0.00    0.00   42.60
+Average:     all    0.14   57.12    0.12    0.00    0.00    0.02    0.00    0.00    0.00   42.60
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        18Gi        99Gi       9.0Mi       8.3Gi       106Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.13    2.03    0.06    0.00    0.00   97.78
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.04      0.94     0.01  19.26    0.13    21.91    9.70   1065.44     1.40  12.63   15.62   109.88    0.06   1761.13     0.00   0.00    0.26 31162.88    0.00    0.00    0.15   0.07
+nvme1n1          0.00      0.03     0.00   0.00    0.20    14.02    0.23     28.87     0.01   2.63    0.85   127.47    0.01   1667.96     0.00   0.00    0.73 128991.89    0.00    0.00    0.00   0.00
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 12 KB/s  TX 0 KB/s
+
+=== SAMPLE 25 @ 2026-05-04 22:54:25 ===
+--- CPU (top snapshot) ---
+top - 22:54:25 up 5 days,  7:54,  3 users,  load average: 26.49, 29.15, 27.10
+Tasks: 668 total,   1 running, 667 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  2.9 us,  1.2 sy, 53.7 ni, 42.2 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total, 101772.9 free,  19262.0 used,   8501.1 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 109051.0 avail Mem 
+--- CPU utilization % ---
+10:54:25 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+10:54:26 PM  all    1.92   55.09    0.41    0.00    0.00    0.00    0.00    0.00    0.00   42.58
+Average:     all    1.92   55.09    0.41    0.00    0.00    0.00    0.00    0.00    0.00   42.58
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        18Gi        99Gi       9.0Mi       8.3Gi       106Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.13    2.03    0.06    0.00    0.00   97.78
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.04      0.94     0.01  19.26    0.13    21.91    9.70   1065.51     1.40  12.63   15.62   109.88    0.06   1761.09     0.00   0.00    0.26 31162.88    0.00    0.00    0.15   0.07
+nvme1n1          0.00      0.03     0.00   0.00    0.20    14.02    0.23     28.87     0.01   2.63    0.85   127.47    0.01   1667.92     0.00   0.00    0.73 128991.89    0.00    0.00    0.00   0.00
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 13 KB/s  TX 0 KB/s
+
+=== SAMPLE 26 @ 2026-05-04 22:54:36 ===
+--- CPU (top snapshot) ---
+top - 22:54:36 up 5 days,  7:54,  3 users,  load average: 23.08, 28.34, 26.86
+Tasks: 670 total,   1 running, 669 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  2.7 us,  0.8 sy, 55.1 ni, 41.4 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total, 102118.5 free,  18916.4 used,   8501.2 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 109396.6 avail Mem 
+--- CPU utilization % ---
+10:54:36 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+10:54:37 PM  all    2.74   54.02    0.56    0.00    0.00    0.05    0.00    0.00    0.00   42.64
+Average:     all    2.74   54.02    0.56    0.00    0.00    0.05    0.00    0.00    0.00   42.64
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        18Gi        99Gi       9.0Mi       8.3Gi       106Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.13    2.03    0.06    0.00    0.00   97.78
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.04      0.94     0.01  19.26    0.13    21.91    9.70   1065.48     1.40  12.63   15.62   109.88    0.06   1761.05     0.00   0.00    0.26 31162.88    0.00    0.00    0.15   0.07
+nvme1n1          0.00      0.03     0.00   0.00    0.20    14.02    0.23     28.87     0.01   2.63    0.85   127.47    0.01   1667.88     0.00   0.00    0.73 128991.89    0.00    0.00    0.00   0.00
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 11 KB/s  TX 0 KB/s
+
+=== SAMPLE 27 @ 2026-05-04 22:54:47 ===
+--- CPU (top snapshot) ---
+top - 22:54:47 up 5 days,  7:54,  3 users,  load average: 24.53, 28.48, 26.92
+Tasks: 673 total,   1 running, 672 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  7.7 us,  4.1 sy, 48.6 ni, 39.6 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total, 100794.4 free,  19571.5 used,   9172.7 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 108741.5 avail Mem 
+--- CPU utilization % ---
+10:54:47 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+10:54:48 PM  all   14.84   11.25    3.16    0.00    0.00    0.29    0.00    0.00    0.00   70.46
+Average:     all   14.84   11.25    3.16    0.00    0.00    0.29    0.00    0.00    0.00   70.46
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        19Gi        97Gi       9.0Mi       8.9Gi       105Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.13    2.03    0.06    0.00    0.00   97.78
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.04      0.94     0.01  19.26    0.13    21.91    9.70   1065.46     1.40  12.63   15.62   109.88    0.06   1761.00     0.00   0.00    0.26 31162.88    0.00    0.00    0.15   0.07
+nvme1n1          0.00      0.03     0.00   0.00    0.20    14.02    0.23     28.86     0.01   2.63    0.85   127.47    0.01   1667.83     0.00   0.00    0.73 128991.89    0.00    0.00    0.00   0.00
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 13 KB/s  TX 0 KB/s
+
+──────────────────────────────────────────
+MONITORING COMPLETE — Mon May  4 10:54:58 PM MDT 2026
+──────────────────────────────────────────

@@ -1,0 +1,38 @@
+
+============================================================
+SEGMENT SNAPSHOT — round=1  phase=post
+timestamp: 2026-05-05T01:15:28.419038
+============================================================
+Total segments    :     59   (states: {3: 59})
+Growing  (state=2):      0   rows:            0
+Sealed   (state=3):     59   rows:   59,754,959
+  └─ DISKANN      :     18   rows:   34,530,672
+  └─ STL_SORT     :     15   rows:   17,803,795
+  └─ unindexed    :     26   rows:    7,420,492
+  └─ other        :      0   rows:            0
+────────────────────────────────────────────────────────────
+Total rows        :            59,754,959
+Unindexed %       :                 12.4%
+
+Sealed segment details (first 20):
+  seg_id=466001507153558909  rows=1,130,584  state=3  index=DISKANN  node=[4]
+  seg_id=466001507206269356  rows=289,754  state=3  index=STL_SORT  node=[4]
+  seg_id=466001507198383884  rows=2,246,652  state=3  index=DISKANN  node=[4]
+  seg_id=466001507199273524  rows=861,700  state=3  index=DISKANN  node=[4]
+  seg_id=466001507205249216  rows=294,795  state=3  index=STL_SORT  node=[4]
+  seg_id=466001507218060279  rows=279,672  state=3  index=none  node=[4]
+  seg_id=466001507207599487  rows=299,836  state=3  index=STL_SORT  node=[4]
+  seg_id=466001507214420117  rows=299,836  state=3  index=none  node=[4]
+  seg_id=466001507221740667  rows=294,795  state=3  index=none  node=[4]
+  seg_id=466001507211559828  rows=289,754  state=3  index=none  node=[4]
+  seg_id=466001507213400014  rows=269,590  state=3  index=none  node=[4]
+  seg_id=466001507211049754  rows=279,672  state=3  index=none  node=[4]
+  seg_id=466001507208109552  rows=274,631  state=3  index=STL_SORT  node=[4]
+  seg_id=466001507213910085  rows=274,631  state=3  index=none  node=[4]
+  seg_id=466001507203841850  rows=4,860,488  state=3  index=DISKANN  node=[4]
+  seg_id=466001507226990908  rows=275,943  state=3  index=none  node=[4]
+  seg_id=466001507212889978  rows=279,672  state=3  index=none  node=[4]
+  seg_id=466001507212579923  rows=291,066  state=3  index=none  node=[4]
+  seg_id=466001507219080385  rows=294,795  state=3  index=none  node=[4]
+  seg_id=466001507197606487  rows=1,942,380  state=3  index=STL_SORT  node=[4]
+  ... and 39 more
