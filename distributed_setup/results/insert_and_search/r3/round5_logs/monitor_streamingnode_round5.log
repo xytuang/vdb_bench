@@ -1,0 +1,899 @@
+
+
+──────────────────────────────────────────
+NODE MONITOR — role=streamingnode  round=5  node3.xytuang-303411.e6897-pg0.utah.cloudlab.us  Wed May  6 01:13:17 PM MDT 2026
+──────────────────────────────────────────
+[2026-05-06 13:13:17] interval=10s  duration=300s
+[2026-05-06 13:13:17] Kernel: 6.8.0-101-generic
+[2026-05-06 13:13:17] Uptime:  13:13:17 up 6 days, 22:13,  3 users,  load average: 1.26, 23.38, 36.78
+
+──────────────────────────────────────────
+STATIC: CPU
+──────────────────────────────────────────
+CPU(s):                                  56
+On-line CPU(s) list:                     0-55
+Model name:                              INTEL(R) XEON(R) GOLD 5512U
+Thread(s) per core:                      2
+Core(s) per socket:                      28
+Socket(s):                               1
+CPU(s) scaling MHz:                      25%
+CPU max MHz:                             3700.0000
+CPU min MHz:                             800.0000
+NUMA node0 CPU(s):                       0-55
+
+──────────────────────────────────────────
+STATIC: MEMORY
+──────────────────────────────────────────
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        42Gi        77Gi       9.0Mi       7.1Gi        83Gi
+Swap:             0B          0B          0B
+
+──────────────────────────────────────────
+STATIC: DISK
+──────────────────────────────────────────
+Filesystem                            Size  Used Avail Use% Mounted on
+tmpfs                                  13G  2.3M   13G   1% /run
+efivarfs                              304K  155K  145K  52% /sys/firmware/efi/efivars
+/dev/nvme0n1p3                         63G  8.5G   51G  15% /
+tmpfs                                  63G     0   63G   0% /dev/shm
+tmpfs                                 5.0M     0  5.0M   0% /run/lock
+/dev/nvme0n1p1                        256M   11M  246M   5% /boot/efi
+/dev/mapper/emulab-node3--bs          1.4T   21M  1.3T   1% /mydata
+ops.utah.cloudlab.us:/proj/e6897-PG0  100G   50G   51G  50% /proj/e6897-PG0
+ops.utah.cloudlab.us:/share            13T   25G   13T   1% /share
+tmpfs                                  13G   12K   13G   1% /run/user/20042
+tmpfs                                 126G   12K  126G   1% /var/lib/kubelet/pods/5edb5966-77c7-4363-b159-69a117018571/volumes/kubernetes.io~projected/kube-api-access-rnn9v
+tmpfs                                 126G   12K  126G   1% /var/lib/kubelet/pods/aae79e91-87b7-455d-a4ec-358189e2eb4e/volumes/kubernetes.io~projected/kube-api-access-5zjcj
+tmpfs                                 126G   12K  126G   1% /var/lib/kubelet/pods/4afbd960-e88c-4dc6-8f61-5dc893d44b52/volumes/kubernetes.io~projected/kube-api-access-mmw9s
+NAME                 MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+nvme1n1              259:0    0 745.2G  0 disk 
+└─emulab-node3--bs   252:0    0   1.4T  0 lvm  /mydata
+nvme0n1              259:1    0 745.2G  0 disk 
+├─nvme0n1p1          259:2    0   256M  0 part /boot/efi
+├─nvme0n1p2          259:3    0     1M  0 part 
+├─nvme0n1p3          259:4    0    64G  0 part /
+├─nvme0n1p99         259:5    0     8G  0 part 
+└─nvme0n1p4          259:6    0   673G  0 part 
+  └─emulab-node3--bs 252:0    0   1.4T  0 lvm  /mydata
+
+──────────────────────────────────────────
+STATIC: NETWORK INTERFACES
+──────────────────────────────────────────
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+enp23s0f0np0     UP             10.10.1.4/24 fe80::42a6:b7ff:fec3:4068/64 
+enp23s0f1np1     DOWN           
+eno12399np0      UP             128.110.220.103/21 metric 1024 fe80::323e:a7ff:fe1e:d7cc/64 
+eno12409np1      DOWN           
+tunl0@NONE       UNKNOWN        10.244.200.192/32 
+calicd1887b8870@if3 UP             fe80::ecee:eeff:feee:eeee/64 
+
+──────────────────────────────────────────
+CPU SCALING GOVERNOR
+──────────────────────────────────────────
+/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor: powersave
+/sys/devices/system/cpu/cpu1/cpufreq/scaling_governor: powersave
+/sys/devices/system/cpu/cpu2/cpufreq/scaling_governor: powersave
+/sys/devices/system/cpu/cpu3/cpufreq/scaling_governor: powersave
+
+──────────────────────────────────────────
+GROWING MMAP
+──────────────────────────────────────────
+mmap path not found: /mydata/milvus/cache/milvus/cache/cache/5/growing_mmap
+
+──────────────────────────────────────────
+TIME-SERIES METRICS (every 10s)
+──────────────────────────────────────────
+
+=== SAMPLE 1 @ 2026-05-06 13:13:17 ===
+--- CPU (top snapshot) ---
+top - 13:13:17 up 6 days, 22:13,  3 users,  load average: 1.26, 23.38, 36.78
+Tasks: 672 total,   1 running, 671 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.2 us,  0.2 sy,  0.0 ni, 99.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,  78962.6 free,  43297.6 used,   7254.3 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.  85015.4 avail Mem 
+--- CPU utilization % ---
+01:13:17 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:13:18 PM  all    0.09    0.00    0.07    0.00    0.00    0.00    0.00    0.00    0.00   99.84
+Average:     all    0.09    0.00    0.07    0.00    0.00    0.00    0.00    0.00    0.00   99.84
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        42Gi        77Gi       9.0Mi       7.1Gi        83Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.14    0.25    0.06    0.00    0.00   99.55
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.03      0.72     0.01  19.32    0.13    21.95    2.32     47.88     1.29  35.68    0.48    20.62    0.04   1279.03     0.00   0.00    0.29 35530.11    0.00    0.00    0.00   0.00
+nvme1n1          0.00      0.03     0.00   0.00    0.23    14.02    0.17     22.24     0.01   2.89    0.85   127.41    0.01   1283.61     0.00   0.00    0.85 128793.76    0.00    0.00    0.00   0.00
+--- GROWING MMAP SIZE ---
+--- MEMORY BREAKDOWN (milvus process) ---
+VmPeak:	   19648 kB
+VmSize:	   19648 kB
+VmRSS:	    3812 kB
+Threads:	2
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 10 KB/s  TX 0 KB/s
+
+=== SAMPLE 2 @ 2026-05-06 13:13:28 ===
+--- CPU (top snapshot) ---
+top - 13:13:28 up 6 days, 22:13,  3 users,  load average: 1.14, 22.63, 36.39
+Tasks: 673 total,   1 running, 672 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.2 us,  0.2 sy,  0.0 ni, 99.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,  79207.2 free,  43053.0 used,   7254.4 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.  85260.0 avail Mem 
+--- CPU utilization % ---
+01:13:28 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:13:29 PM  all    0.11    0.00    0.04    0.00    0.00    0.00    0.00    0.00    0.00   99.86
+Average:     all    0.11    0.00    0.04    0.00    0.00    0.00    0.00    0.00    0.00   99.86
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        42Gi        77Gi       9.0Mi       7.1Gi        83Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.14    0.25    0.06    0.00    0.00   99.55
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.03      0.72     0.01  19.32    0.13    21.95    2.32     47.88     1.29  35.68    0.48    20.62    0.04   1279.01     0.00   0.00    0.29 35530.11    0.00    0.00    0.00   0.00
+nvme1n1          0.00      0.03     0.00   0.00    0.23    14.02    0.17     22.24     0.01   2.89    0.85   127.41    0.01   1283.58     0.00   0.00    0.85 128793.76    0.00    0.00    0.00   0.00
+--- GROWING MMAP SIZE ---
+--- MEMORY BREAKDOWN (milvus process) ---
+VmPeak:	   19648 kB
+VmSize:	   19648 kB
+VmRSS:	    3812 kB
+Threads:	2
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 13 KB/s  TX 0 KB/s
+
+=== SAMPLE 3 @ 2026-05-06 13:13:39 ===
+--- CPU (top snapshot) ---
+top - 13:13:40 up 6 days, 22:13,  3 users,  load average: 6.89, 23.11, 36.40
+Tasks: 674 total,   1 running, 673 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  4.8 us,  1.6 sy, 57.1 ni, 36.4 id,  0.0 wa,  0.0 hi,  0.1 si,  0.0 st 
+MiB Mem : 128313.0 total,  79608.9 free,  42651.2 used,   7254.5 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.  85661.9 avail Mem 
+--- CPU utilization % ---
+01:13:40 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:13:41 PM  all    5.20   44.23    1.02    0.00    0.00    0.04    0.00    0.00    0.00   49.52
+Average:     all    5.20   44.23    1.02    0.00    0.00    0.04    0.00    0.00    0.00   49.52
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        41Gi        77Gi       9.0Mi       7.1Gi        83Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.14    0.25    0.06    0.00    0.00   99.55
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.03      0.72     0.01  19.32    0.13    21.95    2.32     47.88     1.29  35.68    0.48    20.62    0.04   1278.98     0.00   0.00    0.29 35530.11    0.00    0.00    0.00   0.00
+nvme1n1          0.00      0.03     0.00   0.00    0.23    14.02    0.17     22.24     0.01   2.89    0.85   127.41    0.01   1283.56     0.00   0.00    0.85 128793.76    0.00    0.00    0.00   0.00
+--- GROWING MMAP SIZE ---
+--- MEMORY BREAKDOWN (milvus process) ---
+VmPeak:	   19648 kB
+VmSize:	   19648 kB
+VmRSS:	    3812 kB
+Threads:	2
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 15 KB/s  TX 0 KB/s
+
+=== SAMPLE 4 @ 2026-05-06 13:13:51 ===
+--- CPU (top snapshot) ---
+top - 13:13:51 up 6 days, 22:14,  3 users,  load average: 25.77, 26.47, 37.29
+Tasks: 675 total,   1 running, 674 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  7.8 us,  0.8 sy, 44.6 ni, 46.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,  79818.2 free,  42441.9 used,   7254.5 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.  85871.1 avail Mem 
+--- CPU utilization % ---
+01:13:51 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:13:52 PM  all    3.55   50.01    0.66    0.00    0.00    0.05    0.00    0.00    0.00   45.72
+Average:     all    3.55   50.01    0.66    0.00    0.00    0.05    0.00    0.00    0.00   45.72
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        41Gi        77Gi       9.0Mi       7.1Gi        83Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.14    0.25    0.06    0.00    0.00   99.55
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.03      0.72     0.01  19.32    0.13    21.95    2.32     47.88     1.29  35.68    0.48    20.62    0.04   1278.96     0.00   0.00    0.29 35530.11    0.00    0.00    0.00   0.00
+nvme1n1          0.00      0.03     0.00   0.00    0.23    14.02    0.17     22.23     0.01   2.89    0.85   127.41    0.01   1283.53     0.00   0.00    0.85 128793.76    0.00    0.00    0.00   0.00
+--- GROWING MMAP SIZE ---
+--- MEMORY BREAKDOWN (milvus process) ---
+VmPeak:	   19648 kB
+VmSize:	   19648 kB
+VmRSS:	    3812 kB
+Threads:	2
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 12 KB/s  TX 0 KB/s
+
+=== SAMPLE 5 @ 2026-05-06 13:14:02 ===
+--- CPU (top snapshot) ---
+top - 13:14:02 up 6 days, 22:14,  3 users,  load average: 42.43, 30.02, 38.32
+Tasks: 673 total,   1 running, 672 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  8.7 us,  0.7 sy, 13.1 ni, 77.6 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,  79853.3 free,  42406.7 used,   7254.6 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.  85906.3 avail Mem 
+--- CPU utilization % ---
+01:14:02 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:14:03 PM  all    3.07   53.44    0.82    0.00    0.00    0.02    0.00    0.00    0.00   42.65
+Average:     all    3.07   53.44    0.82    0.00    0.00    0.02    0.00    0.00    0.00   42.65
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        41Gi        77Gi       9.0Mi       7.1Gi        83Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.14    0.25    0.06    0.00    0.00   99.55
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.03      0.72     0.01  19.32    0.13    21.95    2.32     47.87     1.29  35.68    0.48    20.62    0.04   1278.94     0.00   0.00    0.29 35530.11    0.00    0.00    0.00   0.00
+nvme1n1          0.00      0.03     0.00   0.00    0.23    14.02    0.17     22.23     0.01   2.89    0.85   127.41    0.01   1283.51     0.00   0.00    0.85 128793.76    0.00    0.00    0.00   0.00
+--- GROWING MMAP SIZE ---
+--- MEMORY BREAKDOWN (milvus process) ---
+VmPeak:	   19648 kB
+VmSize:	   19648 kB
+VmRSS:	    3812 kB
+Threads:	2
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 12 KB/s  TX 0 KB/s
+
+=== SAMPLE 6 @ 2026-05-06 13:14:13 ===
+--- CPU (top snapshot) ---
+top - 13:14:13 up 6 days, 22:14,  3 users,  load average: 51.85, 32.42, 39.02
+Tasks: 673 total,   1 running, 672 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  3.2 us,  0.5 sy, 48.4 ni, 47.7 id,  0.0 wa,  0.0 hi,  0.2 si,  0.0 st 
+MiB Mem : 128313.0 total,  79922.4 free,  42337.6 used,   7254.6 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.  85975.5 avail Mem 
+--- CPU utilization % ---
+01:14:13 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:14:14 PM  all    4.60   51.62    1.05    0.00    0.00    0.05    0.00    0.00    0.00   42.67
+Average:     all    4.60   51.62    1.05    0.00    0.00    0.05    0.00    0.00    0.00   42.67
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        41Gi        78Gi       9.0Mi       7.1Gi        83Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.14    0.25    0.06    0.00    0.00   99.55
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.03      0.72     0.01  19.32    0.13    21.95    2.32     47.87     1.29  35.68    0.48    20.62    0.04   1278.91     0.00   0.00    0.29 35530.11    0.00    0.00    0.00   0.00
+nvme1n1          0.00      0.03     0.00   0.00    0.23    14.02    0.17     22.23     0.01   2.89    0.85   127.41    0.01   1283.48     0.00   0.00    0.85 128793.76    0.00    0.00    0.00   0.00
+--- GROWING MMAP SIZE ---
+--- MEMORY BREAKDOWN (milvus process) ---
+VmPeak:	   19648 kB
+VmSize:	   19648 kB
+VmRSS:	    3812 kB
+Threads:	2
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 13 KB/s  TX 0 KB/s
+
+=== SAMPLE 7 @ 2026-05-06 13:14:25 ===
+--- CPU (top snapshot) ---
+top - 13:14:25 up 6 days, 22:14,  3 users,  load average: 53.61, 33.51, 39.30
+Tasks: 674 total,   1 running, 673 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  2.8 us,  1.0 sy, 48.5 ni, 47.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,  79916.9 free,  42343.1 used,   7254.6 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.  85970.0 avail Mem 
+--- CPU utilization % ---
+01:14:25 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:14:26 PM  all    4.93   48.50    0.73    0.00    0.00    0.07    0.00    0.00    0.00   45.76
+Average:     all    4.93   48.50    0.73    0.00    0.00    0.07    0.00    0.00    0.00   45.76
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        41Gi        78Gi       9.0Mi       7.1Gi        83Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.14    0.25    0.06    0.00    0.00   99.55
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.03      0.72     0.01  19.32    0.13    21.95    2.32     47.87     1.29  35.68    0.48    20.62    0.04   1278.89     0.00   0.00    0.29 35530.11    0.00    0.00    0.00   0.00
+nvme1n1          0.00      0.03     0.00   0.00    0.23    14.02    0.17     22.23     0.01   2.89    0.85   127.41    0.01   1283.46     0.00   0.00    0.85 128793.76    0.00    0.00    0.00   0.00
+--- GROWING MMAP SIZE ---
+--- MEMORY BREAKDOWN (milvus process) ---
+VmPeak:	   19648 kB
+VmSize:	   19648 kB
+VmRSS:	    3812 kB
+Threads:	2
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 15 KB/s  TX 0 KB/s
+
+=== SAMPLE 8 @ 2026-05-06 13:14:36 ===
+--- CPU (top snapshot) ---
+top - 13:14:36 up 6 days, 22:14,  3 users,  load average: 67.07, 37.47, 40.51
+Tasks: 670 total,   1 running, 669 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  4.0 us,  1.2 sy, 57.6 ni, 37.3 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,  79914.9 free,  42345.1 used,   7254.6 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.  85968.0 avail Mem 
+--- CPU utilization % ---
+01:14:36 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:14:37 PM  all    3.93   51.16    0.66    0.00    0.00    0.04    0.00    0.00    0.00   44.21
+Average:     all    3.93   51.16    0.66    0.00    0.00    0.04    0.00    0.00    0.00   44.21
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        41Gi        78Gi       9.0Mi       7.1Gi        83Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.14    0.25    0.06    0.00    0.00   99.55
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.03      0.72     0.01  19.32    0.13    21.95    2.32     47.87     1.29  35.68    0.48    20.62    0.04   1278.86     0.00   0.00    0.29 35530.11    0.00    0.00    0.00   0.00
+nvme1n1          0.00      0.03     0.00   0.00    0.23    14.02    0.17     22.23     0.01   2.89    0.85   127.41    0.01   1283.44     0.00   0.00    0.85 128793.76    0.00    0.00    0.00   0.00
+--- GROWING MMAP SIZE ---
+--- MEMORY BREAKDOWN (milvus process) ---
+VmPeak:	   19648 kB
+VmSize:	   19648 kB
+VmRSS:	    3812 kB
+Threads:	2
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 11 KB/s  TX 0 KB/s
+
+=== SAMPLE 9 @ 2026-05-06 13:14:47 ===
+--- CPU (top snapshot) ---
+top - 13:14:47 up 6 days, 22:15,  3 users,  load average: 67.24, 38.41, 40.78
+Tasks: 672 total,   1 running, 671 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  4.0 us,  1.2 sy, 59.4 ni, 35.3 id,  0.0 wa,  0.0 hi,  0.1 si,  0.0 st 
+MiB Mem : 128313.0 total,  79919.8 free,  42340.1 used,   7254.7 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.  85973.0 avail Mem 
+--- CPU utilization % ---
+01:14:47 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:14:48 PM  all    3.61   48.12    0.64    0.00    0.00    0.07    0.00    0.00    0.00   47.55
+Average:     all    3.61   48.12    0.64    0.00    0.00    0.07    0.00    0.00    0.00   47.55
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        41Gi        78Gi       9.0Mi       7.1Gi        83Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.14    0.25    0.07    0.00    0.00   99.55
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.03      0.72     0.01  19.32    0.13    21.95    2.32     47.87     1.29  35.68    0.48    20.62    0.04   1278.84     0.00   0.00    0.29 35530.11    0.00    0.00    0.00   0.00
+nvme1n1          0.00      0.03     0.00   0.00    0.23    14.02    0.17     22.23     0.01   2.89    0.85   127.41    0.01   1283.41     0.00   0.00    0.85 128793.76    0.00    0.00    0.00   0.00
+--- GROWING MMAP SIZE ---
+--- MEMORY BREAKDOWN (milvus process) ---
+VmPeak:	   19648 kB
+VmSize:	   19648 kB
+VmRSS:	    3812 kB
+Threads:	2
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 14 KB/s  TX 0 KB/s
+
+=== SAMPLE 10 @ 2026-05-06 13:14:58 ===
+--- CPU (top snapshot) ---
+top - 13:14:59 up 6 days, 22:15,  3 users,  load average: 73.30, 40.63, 41.47
+Tasks: 675 total,   1 running, 674 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  3.9 us,  0.7 sy, 15.9 ni, 79.5 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,  79872.2 free,  42387.7 used,   7254.7 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.  85925.4 avail Mem 
+--- CPU utilization % ---
+01:14:59 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:15:00 PM  all    3.00   55.45    0.61    0.00    0.00    0.02    0.00    0.00    0.00   40.92
+Average:     all    3.00   55.45    0.61    0.00    0.00    0.02    0.00    0.00    0.00   40.92
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        41Gi        78Gi       9.0Mi       7.1Gi        83Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.14    0.25    0.07    0.00    0.00   99.55
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.03      0.72     0.01  19.32    0.13    21.95    2.32     47.87     1.29  35.69    0.48    20.62    0.04   1278.82     0.00   0.00    0.29 35530.11    0.00    0.00    0.00   0.00
+nvme1n1          0.00      0.03     0.00   0.00    0.23    14.02    0.17     22.23     0.01   2.89    0.85   127.41    0.01   1283.39     0.00   0.00    0.85 128793.76    0.00    0.00    0.00   0.00
+--- GROWING MMAP SIZE ---
+--- MEMORY BREAKDOWN (milvus process) ---
+VmPeak:	   19648 kB
+VmSize:	   19648 kB
+VmRSS:	    3812 kB
+Threads:	2
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 16 KB/s  TX 0 KB/s
+
+=== SAMPLE 11 @ 2026-05-06 13:15:10 ===
+--- CPU (top snapshot) ---
+top - 13:15:10 up 6 days, 22:15,  3 users,  load average: 73.10, 41.66, 41.80
+Tasks: 679 total,   2 running, 677 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  4.2 us,  1.2 sy, 59.7 ni, 34.9 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,  79887.0 free,  42372.9 used,   7254.7 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.  85940.1 avail Mem 
+--- CPU utilization % ---
+01:15:10 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:15:11 PM  all    3.67   49.30    0.68    0.00    0.00    0.11    0.00    0.00    0.00   46.25
+Average:     all    3.67   49.30    0.68    0.00    0.00    0.11    0.00    0.00    0.00   46.25
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        41Gi        78Gi       9.0Mi       7.1Gi        83Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.14    0.25    0.07    0.00    0.00   99.54
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.03      0.72     0.01  19.32    0.13    21.95    2.32     47.87     1.29  35.68    0.48    20.62    0.04   1278.79     0.00   0.00    0.29 35530.11    0.00    0.00    0.00   0.00
+nvme1n1          0.00      0.03     0.00   0.00    0.23    14.02    0.17     22.23     0.01   2.89    0.85   127.41    0.01   1283.36     0.00   0.00    0.85 128793.76    0.00    0.00    0.00   0.00
+--- GROWING MMAP SIZE ---
+--- MEMORY BREAKDOWN (milvus process) ---
+VmPeak:	   19648 kB
+VmSize:	   19648 kB
+VmRSS:	    3812 kB
+Threads:	2
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 17 KB/s  TX 0 KB/s
+
+=== SAMPLE 12 @ 2026-05-06 13:15:21 ===
+--- CPU (top snapshot) ---
+top - 13:15:21 up 6 days, 22:15,  3 users,  load average: 77.50, 44.24, 42.64
+Tasks: 680 total,   1 running, 679 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  2.0 us,  0.2 sy,  0.0 ni, 97.7 id,  0.0 wa,  0.0 hi,  0.2 si,  0.0 st 
+MiB Mem : 128313.0 total,  79894.7 free,  42365.1 used,   7254.8 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.  85947.9 avail Mem 
+--- CPU utilization % ---
+01:15:21 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:15:22 PM  all    3.08   53.49    0.91    0.00    0.00    0.02    0.00    0.00    0.00   42.51
+Average:     all    3.08   53.49    0.91    0.00    0.00    0.02    0.00    0.00    0.00   42.51
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        41Gi        78Gi       9.0Mi       7.1Gi        83Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.14    0.26    0.07    0.00    0.00   99.54
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.03      0.72     0.01  19.32    0.13    21.95    2.32     47.87     1.29  35.68    0.48    20.62    0.04   1278.77     0.00   0.00    0.29 35530.11    0.00    0.00    0.00   0.00
+nvme1n1          0.00      0.03     0.00   0.00    0.23    14.02    0.17     22.23     0.01   2.89    0.85   127.41    0.01   1283.34     0.00   0.00    0.85 128793.76    0.00    0.00    0.00   0.00
+--- GROWING MMAP SIZE ---
+--- MEMORY BREAKDOWN (milvus process) ---
+VmPeak:	   19648 kB
+VmSize:	   19648 kB
+VmRSS:	    3812 kB
+Threads:	2
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 16 KB/s  TX 0 KB/s
+
+=== SAMPLE 13 @ 2026-05-06 13:15:32 ===
+--- CPU (top snapshot) ---
+top - 13:15:33 up 6 days, 22:15,  3 users,  load average: 81.86, 46.30, 43.33
+Tasks: 674 total,   1 running, 673 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  4.3 us,  0.7 sy, 48.2 ni, 46.7 id,  0.0 wa,  0.0 hi,  0.2 si,  0.0 st 
+MiB Mem : 128313.0 total,  79868.2 free,  42391.5 used,   7254.8 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.  85921.5 avail Mem 
+--- CPU utilization % ---
+01:15:33 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:15:34 PM  all    3.27   53.17    0.89    0.00    0.00    0.00    0.00    0.00    0.00   42.67
+Average:     all    3.27   53.17    0.89    0.00    0.00    0.00    0.00    0.00    0.00   42.67
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        41Gi        78Gi       9.0Mi       7.1Gi        83Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.14    0.26    0.07    0.00    0.00   99.54
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.03      0.72     0.01  19.32    0.13    21.95    2.32     47.87     1.29  35.68    0.48    20.62    0.04   1278.74     0.00   0.00    0.29 35530.11    0.00    0.00    0.00   0.00
+nvme1n1          0.00      0.03     0.00   0.00    0.23    14.02    0.17     22.23     0.01   2.89    0.85   127.41    0.01   1283.31     0.00   0.00    0.85 128793.76    0.00    0.00    0.00   0.00
+--- GROWING MMAP SIZE ---
+--- MEMORY BREAKDOWN (milvus process) ---
+VmPeak:	   19648 kB
+VmSize:	   19648 kB
+VmRSS:	    3812 kB
+Threads:	2
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 14 KB/s  TX 0 KB/s
+
+=== SAMPLE 14 @ 2026-05-06 13:15:44 ===
+--- CPU (top snapshot) ---
+top - 13:15:44 up 6 days, 22:15,  3 users,  load average: 82.60, 47.61, 43.79
+Tasks: 675 total,   1 running, 674 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  1.3 us,  0.3 sy, 50.4 ni, 48.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,  79922.0 free,  42337.8 used,   7254.9 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.  85975.3 avail Mem 
+--- CPU utilization % ---
+01:15:44 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:15:45 PM  all    4.22   52.22    0.86    0.00    0.00    0.05    0.00    0.00    0.00   42.65
+Average:     all    4.22   52.22    0.86    0.00    0.00    0.05    0.00    0.00    0.00   42.65
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        41Gi        78Gi       9.0Mi       7.1Gi        83Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.14    0.26    0.07    0.00    0.00   99.54
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.03      0.72     0.01  19.32    0.13    21.95    2.32     47.87     1.29  35.68    0.48    20.62    0.04   1278.72     0.00   0.00    0.29 35530.11    0.00    0.00    0.00   0.00
+nvme1n1          0.00      0.03     0.00   0.00    0.23    14.02    0.17     22.23     0.01   2.89    0.85   127.41    0.01   1283.29     0.00   0.00    0.85 128793.76    0.00    0.00    0.00   0.00
+--- GROWING MMAP SIZE ---
+--- MEMORY BREAKDOWN (milvus process) ---
+VmPeak:	   19648 kB
+VmSize:	   19648 kB
+VmRSS:	    3812 kB
+Threads:	2
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 11 KB/s  TX 0 KB/s
+
+=== SAMPLE 15 @ 2026-05-06 13:15:55 ===
+--- CPU (top snapshot) ---
+top - 13:15:55 up 6 days, 22:16,  3 users,  load average: 84.81, 49.89, 44.60
+Tasks: 675 total,   1 running, 674 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  3.8 us,  1.3 sy, 47.5 ni, 47.5 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,  79927.0 free,  42332.7 used,   7254.9 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.  85980.4 avail Mem 
+--- CPU utilization % ---
+01:15:55 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:15:56 PM  all    4.19   49.26    0.82    0.00    0.00    0.02    0.00    0.00    0.00   45.72
+Average:     all    4.19   49.26    0.82    0.00    0.00    0.02    0.00    0.00    0.00   45.72
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        41Gi        78Gi       9.0Mi       7.1Gi        83Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.14    0.26    0.07    0.00    0.00   99.54
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.03      0.72     0.01  19.32    0.13    21.95    2.32     47.87     1.29  35.68    0.48    20.62    0.04   1278.69     0.00   0.00    0.29 35530.11    0.00    0.00    0.00   0.00
+nvme1n1          0.00      0.03     0.00   0.00    0.23    14.02    0.17     22.23     0.01   2.89    0.85   127.41    0.01   1283.27     0.00   0.00    0.85 128793.76    0.00    0.00    0.00   0.00
+--- GROWING MMAP SIZE ---
+--- MEMORY BREAKDOWN (milvus process) ---
+VmPeak:	   19648 kB
+VmSize:	   19648 kB
+VmRSS:	    3812 kB
+Threads:	2
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 14 KB/s  TX 0 KB/s
+
+=== SAMPLE 16 @ 2026-05-06 13:16:06 ===
+--- CPU (top snapshot) ---
+top - 13:16:07 up 6 days, 22:16,  3 users,  load average: 85.20, 51.14, 45.06
+Tasks: 673 total,   1 running, 672 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  4.4 us,  1.2 sy, 60.7 ni, 33.6 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,  79906.4 free,  42353.3 used,   7254.9 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.  85959.8 avail Mem 
+--- CPU utilization % ---
+01:16:07 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:16:08 PM  all    5.19   43.62    0.66    0.00    0.00    0.07    0.00    0.00    0.00   50.46
+Average:     all    5.19   43.62    0.66    0.00    0.00    0.07    0.00    0.00    0.00   50.46
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        41Gi        78Gi       9.0Mi       7.1Gi        83Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.14    0.26    0.07    0.00    0.00   99.54
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.03      0.72     0.01  19.32    0.13    21.95    2.32     47.87     1.29  35.69    0.48    20.62    0.04   1278.67     0.00   0.00    0.29 35530.11    0.00    0.00    0.00   0.00
+nvme1n1          0.00      0.03     0.00   0.00    0.23    14.02    0.17     22.23     0.01   2.89    0.85   127.41    0.01   1283.24     0.00   0.00    0.85 128793.76    0.00    0.00    0.00   0.00
+--- GROWING MMAP SIZE ---
+--- MEMORY BREAKDOWN (milvus process) ---
+VmPeak:	   19648 kB
+VmSize:	   19648 kB
+VmRSS:	    3812 kB
+Threads:	2
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 12 KB/s  TX 0 KB/s
+
+=== SAMPLE 17 @ 2026-05-06 13:16:18 ===
+--- CPU (top snapshot) ---
+top - 13:16:18 up 6 days, 22:16,  3 users,  load average: 81.33, 51.44, 45.23
+Tasks: 674 total,   1 running, 673 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  4.7 us,  0.8 sy, 46.9 ni, 47.6 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,  79899.6 free,  42360.0 used,   7255.0 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.  85953.0 avail Mem 
+--- CPU utilization % ---
+01:16:18 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:16:19 PM  all    3.80   52.57    0.91    0.00    0.00    0.04    0.00    0.00    0.00   42.68
+Average:     all    3.80   52.57    0.91    0.00    0.00    0.04    0.00    0.00    0.00   42.68
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        41Gi        78Gi       9.0Mi       7.1Gi        83Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.14    0.26    0.07    0.00    0.00   99.54
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.03      0.72     0.01  19.32    0.13    21.95    2.32     47.87     1.29  35.69    0.48    20.61    0.04   1278.65     0.00   0.00    0.29 35530.11    0.00    0.00    0.00   0.00
+nvme1n1          0.00      0.03     0.00   0.00    0.23    14.02    0.17     22.23     0.01   2.89    0.85   127.41    0.01   1283.22     0.00   0.00    0.85 128793.76    0.00    0.00    0.00   0.00
+--- GROWING MMAP SIZE ---
+--- MEMORY BREAKDOWN (milvus process) ---
+VmPeak:	   19648 kB
+VmSize:	   19648 kB
+VmRSS:	    3812 kB
+Threads:	2
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 13 KB/s  TX 0 KB/s
+
+=== SAMPLE 18 @ 2026-05-06 13:16:29 ===
+--- CPU (top snapshot) ---
+top - 13:16:29 up 6 days, 22:16,  3 users,  load average: 74.53, 50.99, 45.15
+Tasks: 674 total,   1 running, 673 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  4.9 us,  1.0 sy, 43.8 ni, 50.4 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,  79864.1 free,  42395.5 used,   7255.0 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.  85917.5 avail Mem 
+--- CPU utilization % ---
+01:16:29 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:16:30 PM  all    3.47   53.17    0.82    0.00    0.00    0.02    0.00    0.00    0.00   42.52
+Average:     all    3.47   53.17    0.82    0.00    0.00    0.02    0.00    0.00    0.00   42.52
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        41Gi        77Gi       9.0Mi       7.1Gi        83Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.14    0.26    0.07    0.00    0.00   99.54
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.03      0.72     0.01  19.32    0.13    21.95    2.32     47.87     1.29  35.69    0.48    20.61    0.04   1278.62     0.00   0.00    0.29 35530.11    0.00    0.00    0.00   0.00
+nvme1n1          0.00      0.03     0.00   0.00    0.23    14.02    0.17     22.23     0.01   2.89    0.85   127.41    0.01   1283.19     0.00   0.00    0.85 128793.76    0.00    0.00    0.00   0.00
+--- GROWING MMAP SIZE ---
+--- MEMORY BREAKDOWN (milvus process) ---
+VmPeak:	   19648 kB
+VmSize:	   19648 kB
+VmRSS:	    3812 kB
+Threads:	2
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 14 KB/s  TX 0 KB/s
+
+=== SAMPLE 19 @ 2026-05-06 13:16:40 ===
+--- CPU (top snapshot) ---
+top - 13:16:41 up 6 days, 22:16,  3 users,  load average: 59.02, 48.72, 44.50
+Tasks: 673 total,   1 running, 672 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  1.8 us,  0.2 sy,  0.0 ni, 97.9 id,  0.0 wa,  0.0 hi,  0.2 si,  0.0 st 
+MiB Mem : 128313.0 total,  79882.0 free,  42377.5 used,   7255.0 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.  85935.5 avail Mem 
+--- CPU utilization % ---
+01:16:41 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:16:42 PM  all    2.77   53.75    0.77    0.00    0.00    0.00    0.00    0.00    0.00   42.71
+Average:     all    2.77   53.75    0.77    0.00    0.00    0.00    0.00    0.00    0.00   42.71
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        41Gi        78Gi       9.0Mi       7.1Gi        83Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.14    0.26    0.07    0.00    0.00   99.54
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.03      0.72     0.01  19.32    0.13    21.95    2.32     47.87     1.29  35.69    0.48    20.61    0.04   1278.60     0.00   0.00    0.29 35530.11    0.00    0.00    0.00   0.00
+nvme1n1          0.00      0.03     0.00   0.00    0.23    14.02    0.17     22.23     0.01   2.89    0.85   127.41    0.01   1283.17     0.00   0.00    0.85 128793.76    0.00    0.00    0.00   0.00
+--- GROWING MMAP SIZE ---
+--- MEMORY BREAKDOWN (milvus process) ---
+VmPeak:	   19648 kB
+VmSize:	   19648 kB
+VmRSS:	    3812 kB
+Threads:	2
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 13 KB/s  TX 0 KB/s
+
+=== SAMPLE 20 @ 2026-05-06 13:16:52 ===
+--- CPU (top snapshot) ---
+top - 13:16:52 up 6 days, 22:17,  3 users,  load average: 49.95, 47.12, 44.03
+Tasks: 675 total,   1 running, 674 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  2.5 us,  0.7 sy, 51.6 ni, 45.3 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,  79839.0 free,  42420.5 used,   7255.1 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.  85892.5 avail Mem 
+--- CPU utilization % ---
+01:16:52 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:16:53 PM  all    3.60   52.96    0.77    0.00    0.00    0.09    0.00    0.00    0.00   42.58
+Average:     all    3.60   52.96    0.77    0.00    0.00    0.09    0.00    0.00    0.00   42.58
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        41Gi        77Gi       9.0Mi       7.1Gi        83Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.14    0.26    0.07    0.00    0.00   99.54
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.03      0.72     0.01  19.32    0.13    21.95    2.32     47.87     1.29  35.69    0.48    20.61    0.04   1278.57     0.00   0.00    0.29 35530.11    0.00    0.00    0.00   0.00
+nvme1n1          0.00      0.03     0.00   0.00    0.23    14.02    0.17     22.23     0.01   2.89    0.85   127.41    0.01   1283.14     0.00   0.00    0.85 128793.76    0.00    0.00    0.00   0.00
+--- GROWING MMAP SIZE ---
+--- MEMORY BREAKDOWN (milvus process) ---
+VmPeak:	   19648 kB
+VmSize:	   19648 kB
+VmRSS:	    3812 kB
+Threads:	2
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 13 KB/s  TX 0 KB/s
+
+=== SAMPLE 21 @ 2026-05-06 13:17:03 ===
+--- CPU (top snapshot) ---
+top - 13:17:03 up 6 days, 22:17,  3 users,  load average: 42.27, 45.57, 43.55
+Tasks: 680 total,   1 running, 679 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  3.1 us,  0.9 sy, 50.5 ni, 45.3 id,  0.0 wa,  0.0 hi,  0.2 si,  0.0 st 
+MiB Mem : 128313.0 total,  79824.9 free,  42434.5 used,   7255.1 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.  85878.5 avail Mem 
+--- CPU utilization % ---
+01:17:03 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:17:04 PM  all    2.86   54.03    0.66    0.00    0.00    0.02    0.00    0.00    0.00   42.43
+Average:     all    2.86   54.03    0.66    0.00    0.00    0.02    0.00    0.00    0.00   42.43
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        41Gi        78Gi       9.0Mi       7.1Gi        83Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.14    0.26    0.07    0.00    0.00   99.53
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.03      0.72     0.01  19.32    0.13    21.95    2.32     47.86     1.29  35.69    0.48    20.61    0.04   1278.55     0.00   0.00    0.29 35530.11    0.00    0.00    0.00   0.00
+nvme1n1          0.00      0.03     0.00   0.00    0.23    14.02    0.17     22.23     0.01   2.89    0.85   127.41    0.01   1283.12     0.00   0.00    0.85 128793.76    0.00    0.00    0.00   0.00
+--- GROWING MMAP SIZE ---
+--- MEMORY BREAKDOWN (milvus process) ---
+VmPeak:	   19648 kB
+VmSize:	   19648 kB
+VmRSS:	    3812 kB
+Threads:	2
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 16 KB/s  TX 0 KB/s
+
+=== SAMPLE 22 @ 2026-05-06 13:17:14 ===
+--- CPU (top snapshot) ---
+top - 13:17:15 up 6 days, 22:17,  3 users,  load average: 35.77, 44.06, 43.09
+Tasks: 675 total,   1 running, 674 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  1.4 us,  0.4 sy, 65.0 ni, 33.2 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,  79895.3 free,  42364.2 used,   7255.1 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.  85948.9 avail Mem 
+--- CPU utilization % ---
+01:17:15 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:17:16 PM  all    4.61   51.69    1.05    0.00    0.00    0.02    0.00    0.00    0.00   42.63
+Average:     all    4.61   51.69    1.05    0.00    0.00    0.02    0.00    0.00    0.00   42.63
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        41Gi        78Gi       9.0Mi       7.1Gi        83Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.14    0.26    0.07    0.00    0.00   99.53
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.03      0.72     0.01  19.32    0.13    21.95    2.32     47.86     1.29  35.69    0.48    20.61    0.04   1278.52     0.00   0.00    0.29 35530.11    0.00    0.00    0.00   0.00
+nvme1n1          0.00      0.03     0.00   0.00    0.23    14.02    0.17     22.23     0.01   2.89    0.85   127.41    0.01   1283.10     0.00   0.00    0.85 128793.76    0.00    0.00    0.00   0.00
+--- GROWING MMAP SIZE ---
+--- MEMORY BREAKDOWN (milvus process) ---
+VmPeak:	   19648 kB
+VmSize:	   19648 kB
+VmRSS:	    3812 kB
+Threads:	2
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 14 KB/s  TX 0 KB/s
+
+=== SAMPLE 23 @ 2026-05-06 13:17:26 ===
+--- CPU (top snapshot) ---
+top - 13:17:26 up 6 days, 22:17,  3 users,  load average: 27.85, 41.91, 42.40
+Tasks: 676 total,   1 running, 675 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  3.3 us,  0.9 sy, 60.3 ni, 35.6 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,  79907.8 free,  42351.6 used,   7255.2 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.  85961.4 avail Mem 
+--- CPU utilization % ---
+01:17:26 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:17:27 PM  all    4.88   51.13    0.96    0.00    0.00    0.05    0.00    0.00    0.00   42.98
+Average:     all    4.88   51.13    0.96    0.00    0.00    0.05    0.00    0.00    0.00   42.98
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        41Gi        78Gi       9.0Mi       7.1Gi        83Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.14    0.27    0.07    0.00    0.00   99.53
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.03      0.72     0.01  19.32    0.13    21.95    2.32     47.86     1.29  35.69    0.48    20.61    0.04   1278.50     0.00   0.00    0.29 35530.11    0.00    0.00    0.00   0.00
+nvme1n1          0.00      0.03     0.00   0.00    0.23    14.02    0.17     22.23     0.01   2.89    0.85   127.41    0.01   1283.07     0.00   0.00    0.85 128793.76    0.00    0.00    0.00   0.00
+--- GROWING MMAP SIZE ---
+--- MEMORY BREAKDOWN (milvus process) ---
+VmPeak:	   19648 kB
+VmSize:	   19648 kB
+VmRSS:	    3812 kB
+Threads:	2
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 15 KB/s  TX 0 KB/s
+
+=== SAMPLE 24 @ 2026-05-06 13:17:37 ===
+--- CPU (top snapshot) ---
+top - 13:17:37 up 6 days, 22:17,  3 users,  load average: 23.56, 40.52, 41.94
+Tasks: 678 total,   1 running, 677 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  3.0 us,  1.5 sy, 60.7 ni, 34.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,  79866.3 free,  42393.1 used,   7255.2 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.  85920.0 avail Mem 
+--- CPU utilization % ---
+01:17:37 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:17:38 PM  all    4.83   42.61    0.81    0.00    0.00    0.02    0.00    0.00    0.00   51.74
+Average:     all    4.83   42.61    0.81    0.00    0.00    0.02    0.00    0.00    0.00   51.74
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        41Gi        77Gi       9.0Mi       7.1Gi        83Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.14    0.27    0.07    0.00    0.00   99.53
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.03      0.72     0.01  19.32    0.13    21.95    2.32     47.86     1.29  35.69    0.48    20.61    0.04   1278.48     0.00   0.00    0.29 35530.11    0.00    0.00    0.00   0.00
+nvme1n1          0.00      0.03     0.00   0.00    0.23    14.02    0.17     22.23     0.01   2.89    0.85   127.41    0.01   1283.05     0.00   0.00    0.85 128793.76    0.00    0.00    0.00   0.00
+--- GROWING MMAP SIZE ---
+--- MEMORY BREAKDOWN (milvus process) ---
+VmPeak:	   19648 kB
+VmSize:	   19648 kB
+VmRSS:	    3812 kB
+Threads:	2
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 12 KB/s  TX 0 KB/s
+
+=== SAMPLE 25 @ 2026-05-06 13:17:48 ===
+--- CPU (top snapshot) ---
+top - 13:17:49 up 6 days, 22:18,  3 users,  load average: 19.94, 39.19, 41.49
+Tasks: 675 total,   2 running, 673 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  2.8 us,  0.8 sy, 49.6 ni, 46.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,  79886.6 free,  42372.7 used,   7255.2 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.  85940.3 avail Mem 
+--- CPU utilization % ---
+01:17:49 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:17:50 PM  all    5.01   42.76    0.82    0.00    0.00    0.07    0.00    0.00    0.00   51.33
+Average:     all    5.01   42.76    0.82    0.00    0.00    0.07    0.00    0.00    0.00   51.33
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        41Gi        78Gi       9.0Mi       7.1Gi        83Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.14    0.27    0.07    0.00    0.00   99.53
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.03      0.72     0.01  19.32    0.13    21.95    2.32     47.86     1.29  35.69    0.48    20.61    0.04   1278.45     0.00   0.00    0.29 35530.11    0.00    0.00    0.00   0.00
+nvme1n1          0.00      0.03     0.00   0.00    0.23    14.02    0.17     22.23     0.01   2.89    0.85   127.41    0.01   1283.02     0.00   0.00    0.85 128793.76    0.00    0.00    0.00   0.00
+--- GROWING MMAP SIZE ---
+--- MEMORY BREAKDOWN (milvus process) ---
+VmPeak:	   19648 kB
+VmSize:	   19648 kB
+VmRSS:	    3812 kB
+Threads:	2
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 15 KB/s  TX 0 KB/s
+
+=== SAMPLE 26 @ 2026-05-06 13:18:00 ===
+--- CPU (top snapshot) ---
+top - 13:18:00 up 6 days, 22:18,  3 users,  load average: 16.87, 37.90, 41.05
+Tasks: 676 total,   1 running, 675 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  3.7 us,  1.1 sy, 51.1 ni, 44.1 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,  79882.9 free,  42376.4 used,   7255.3 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.  85936.6 avail Mem 
+--- CPU utilization % ---
+01:18:00 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:18:01 PM  all    3.99   49.87    0.75    0.00    0.00    0.05    0.00    0.00    0.00   45.34
+Average:     all    3.99   49.87    0.75    0.00    0.00    0.05    0.00    0.00    0.00   45.34
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        41Gi        78Gi       9.0Mi       7.1Gi        83Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.14    0.27    0.07    0.00    0.00   99.53
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.03      0.72     0.01  19.32    0.13    21.95    2.32     47.86     1.29  35.69    0.48    20.61    0.04   1278.43     0.00   0.00    0.29 35530.11    0.00    0.00    0.00   0.00
+nvme1n1          0.00      0.03     0.00   0.00    0.23    14.02    0.17     22.23     0.01   2.89    0.85   127.41    0.01   1283.00     0.00   0.00    0.85 128793.76    0.00    0.00    0.00   0.00
+--- GROWING MMAP SIZE ---
+--- MEMORY BREAKDOWN (milvus process) ---
+VmPeak:	   19648 kB
+VmSize:	   19648 kB
+VmRSS:	    3812 kB
+Threads:	2
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 12 KB/s  TX 0 KB/s
+
+=== SAMPLE 27 @ 2026-05-06 13:18:11 ===
+--- CPU (top snapshot) ---
+top - 13:18:11 up 6 days, 22:18,  3 users,  load average: 13.22, 36.06, 40.39
+Tasks: 675 total,   1 running, 674 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  3.7 us,  1.2 sy, 57.5 ni, 37.6 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,  79871.6 free,  42387.7 used,   7255.3 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.  85925.4 avail Mem 
+--- CPU utilization % ---
+01:18:11 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:18:12 PM  all    4.97   44.05    0.84    0.00    0.00    0.05    0.00    0.00    0.00   50.09
+Average:     all    4.97   44.05    0.84    0.00    0.00    0.05    0.00    0.00    0.00   50.09
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        41Gi        77Gi       9.0Mi       7.1Gi        83Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.14    0.27    0.07    0.00    0.00   99.53
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.03      0.72     0.01  19.32    0.13    21.95    2.32     47.86     1.29  35.69    0.48    20.61    0.04   1278.40     0.00   0.00    0.29 35530.11    0.00    0.00    0.00   0.00
+nvme1n1          0.00      0.03     0.00   0.00    0.23    14.02    0.17     22.23     0.01   2.89    0.85   127.41    0.01   1282.97     0.00   0.00    0.85 128793.76    0.00    0.00    0.00   0.00
+--- GROWING MMAP SIZE ---
+--- MEMORY BREAKDOWN (milvus process) ---
+VmPeak:	   19648 kB
+VmSize:	   19648 kB
+VmRSS:	    3812 kB
+Threads:	2
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 13 KB/s  TX 0 KB/s
+
+──────────────────────────────────────────
+MONITORING COMPLETE — Wed May  6 01:18:22 PM MDT 2026
+──────────────────────────────────────────

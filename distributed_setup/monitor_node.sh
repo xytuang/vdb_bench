@@ -57,7 +57,7 @@ done
 case "$ROLE" in
     querynode)
         separator "DISKANN LOCAL CACHE"
-        CACHE_PATH="/mydata/milvus/cache/milvus/cache/cache/4/local_chunk"
+        CACHE_PATH="/mydata/milvus/cache/milvus/cache/cache/5/local_chunk"
         if [ -d "$CACHE_PATH" ]; then
             du -sh "$CACHE_PATH" >> "$LOGFILE" 2>&1
             ls -lh "$CACHE_PATH" | head -30 >> "$LOGFILE" 2>&1
@@ -67,7 +67,7 @@ case "$ROLE" in
         ;;
     streamingnode)
         separator "GROWING MMAP"
-        MMAP_PATH="/mydata/milvus/cache/milvus/cache/cache/4/growing_mmap"
+        MMAP_PATH="/mydata/milvus/cache/milvus/cache/cache/5/growing_mmap"
         if [ -d "$MMAP_PATH" ]; then
             du -sh "$MMAP_PATH" >> "$LOGFILE" 2>&1
             ls -lh "$MMAP_PATH" | head -30 >> "$LOGFILE" 2>&1
@@ -127,7 +127,7 @@ while [ "$(date +%s)" -lt "$END_TIME" ]; do
     case "$ROLE" in
         querynode)
             echo "--- DISKANN CACHE SIZE ---" >> "$LOGFILE"
-            du -sh /mydata/milvus/cache/milvus/cache/cache/4/local_chunk/ 2>/dev/null >> "$LOGFILE"
+            du -sh /mydata/milvus/cache/milvus/cache/cache/5/local_chunk/ 2>/dev/null >> "$LOGFILE"
 
             echo "--- OPEN FILES (milvus process) ---" >> "$LOGFILE"
             MILVUS_PID=$(pgrep -f "milvus" | head -1)
@@ -139,7 +139,7 @@ while [ "$(date +%s)" -lt "$END_TIME" ]; do
 
         streamingnode)
             echo "--- GROWING MMAP SIZE ---" >> "$LOGFILE"
-            du -sh /mydata/milvus/cache/milvus/cache/cache/4/growing_mmap/ 2>/dev/null >> "$LOGFILE"
+            du -sh /mydata/milvus/cache/milvus/cache/cache/5/growing_mmap/ 2>/dev/null >> "$LOGFILE"
 
             echo "--- MEMORY BREAKDOWN (milvus process) ---" >> "$LOGFILE"
             MILVUS_PID=$(pgrep -f "milvus" | head -1)

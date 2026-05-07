@@ -1,0 +1,820 @@
+
+
+──────────────────────────────────────────
+NODE MONITOR — role=minio  round=4  node5.xytuang-303411.e6897-pg0.utah.cloudlab.us  Wed May  6 01:04:18 PM MDT 2026
+──────────────────────────────────────────
+[2026-05-06 13:04:18] interval=10s  duration=300s
+[2026-05-06 13:04:18] Kernel: 6.8.0-101-generic
+[2026-05-06 13:04:18] Uptime:  13:04:18 up 6 days, 22:04,  3 users,  load average: 0.14, 0.24, 0.26
+
+──────────────────────────────────────────
+STATIC: CPU
+──────────────────────────────────────────
+CPU(s):                                  56
+On-line CPU(s) list:                     0-55
+Model name:                              INTEL(R) XEON(R) GOLD 5512U
+Thread(s) per core:                      2
+Core(s) per socket:                      28
+Socket(s):                               1
+CPU(s) scaling MHz:                      26%
+CPU max MHz:                             3700.0000
+CPU min MHz:                             800.0000
+NUMA node0 CPU(s):                       0-55
+
+──────────────────────────────────────────
+STATIC: MEMORY
+──────────────────────────────────────────
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        15Gi       2.0Gi       9.0Mi       108Gi       109Gi
+Swap:             0B          0B          0B
+
+──────────────────────────────────────────
+STATIC: DISK
+──────────────────────────────────────────
+Filesystem                            Size  Used Avail Use% Mounted on
+tmpfs                                  13G  2.3M   13G   1% /run
+efivarfs                              304K  232K   68K  78% /sys/firmware/efi/efivars
+/dev/nvme1n1p3                         63G  4.8G   55G   8% /
+tmpfs                                  63G     0   63G   0% /dev/shm
+tmpfs                                 5.0M     0  5.0M   0% /run/lock
+/dev/nvme1n1p1                        256M   11M  246M   5% /boot/efi
+/dev/mapper/emulab-node5--bs          1.4T  125G  1.2T  10% /mydata
+ops.utah.cloudlab.us:/share            13T   25G   13T   1% /share
+ops.utah.cloudlab.us:/proj/e6897-PG0  100G   50G   51G  50% /proj/e6897-PG0
+tmpfs                                  13G   12K   13G   1% /run/user/20042
+tmpfs                                 126G   12K  126G   1% /var/lib/kubelet/pods/56a4e28e-090c-4daa-b4b5-429f3480c156/volumes/kubernetes.io~projected/kube-api-access-w5nk4
+tmpfs                                 126G   12K  126G   1% /var/lib/kubelet/pods/4bb5e28f-b1ce-4812-9e0d-f2e16a2df477/volumes/kubernetes.io~projected/kube-api-access-kr6dv
+tmpfs                                 126G   12K  126G   1% /var/lib/kubelet/pods/1b0e5f53-147a-4448-a667-44a324af9f2c/volumes/kubernetes.io~projected/kube-api-access-z565k
+NAME                 MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+nvme0n1              259:0    0 745.2G  0 disk 
+└─emulab-node5--bs   252:0    0   1.4T  0 lvm  /mydata
+nvme1n1              259:1    0 745.2G  0 disk 
+├─nvme1n1p1          259:2    0   256M  0 part /boot/efi
+├─nvme1n1p2          259:3    0     1M  0 part 
+├─nvme1n1p3          259:4    0    64G  0 part /
+├─nvme1n1p99         259:5    0     8G  0 part 
+└─nvme1n1p4          259:6    0   673G  0 part 
+  └─emulab-node5--bs 252:0    0   1.4T  0 lvm  /mydata
+
+──────────────────────────────────────────
+STATIC: NETWORK INTERFACES
+──────────────────────────────────────────
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+enp23s0f0np0     UP             10.10.1.6/24 fe80::42a6:b7ff:fec3:46d0/64 
+enp23s0f1np1     DOWN           
+eno12399np0      UP             128.110.220.104/21 metric 1024 fe80::323e:a7ff:fe1d:ff9e/64 
+eno12409np1      DOWN           
+tunl0@NONE       UNKNOWN        10.244.208.128/32 
+cali7fbb7a2e958@if3 UP             fe80::a057:d7ff:fe9b:7264/64 
+
+──────────────────────────────────────────
+CPU SCALING GOVERNOR
+──────────────────────────────────────────
+/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor: powersave
+/sys/devices/system/cpu/cpu1/cpufreq/scaling_governor: powersave
+/sys/devices/system/cpu/cpu2/cpufreq/scaling_governor: powersave
+/sys/devices/system/cpu/cpu3/cpufreq/scaling_governor: powersave
+
+──────────────────────────────────────────
+MINIO DISK
+──────────────────────────────────────────
+Filesystem                    Size  Used Avail Use% Mounted on
+/dev/mapper/emulab-node5--bs  1.4T  125G  1.2T  10% /mydata
+du: cannot access '/mydata/minio/': No such file or directory
+
+──────────────────────────────────────────
+TIME-SERIES METRICS (every 10s)
+──────────────────────────────────────────
+
+=== SAMPLE 1 @ 2026-05-06 13:04:18 ===
+--- CPU (top snapshot) ---
+top - 13:04:18 up 6 days, 22:04,  3 users,  load average: 0.14, 0.24, 0.26
+Tasks: 672 total,   1 running, 671 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  1.0 us,  0.3 sy,  0.0 ni, 98.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,   2095.9 free,  15907.8 used, 111555.4 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 112405.3 avail Mem 
+--- CPU utilization % ---
+01:04:18 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:04:19 PM  all    0.48    0.00    0.25    0.00    0.00    0.00    0.00    0.00    0.00   99.27
+Average:     all    0.48    0.00    0.25    0.00    0.00    0.00    0.00    0.00    0.00   99.27
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        15Gi       2.1Gi       9.0Mi       108Gi       109Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.08    0.00    0.06    0.00    0.00   99.85
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.01      0.72     0.00   0.66    0.24    67.33   18.45   1770.56    24.01  56.55    1.32    95.96    0.03   1412.60     0.00   0.00    0.48 45997.02    0.00    0.00    0.02   0.09
+nvme1n1          0.06      1.38     0.01  15.86    0.14    24.47    6.04    604.11     0.99  14.12    1.77   100.09    0.04   1276.59     0.00   0.00    0.27 35463.07    0.00    0.00    0.01   0.02
+--- MINIO DISK USAGE ---
+Filesystem                    Size  Used Avail Use% Mounted on
+/dev/mapper/emulab-node5--bs  1.4T  125G  1.2T  10% /mydata
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 14 KB/s  TX 0 KB/s
+
+=== SAMPLE 2 @ 2026-05-06 13:04:29 ===
+--- CPU (top snapshot) ---
+top - 13:04:29 up 6 days, 22:04,  3 users,  load average: 0.12, 0.23, 0.26
+Tasks: 675 total,   1 running, 674 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.2 sy,  0.0 ni, 99.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,   2098.4 free,  15905.0 used, 111555.5 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 112408.0 avail Mem 
+--- CPU utilization % ---
+01:04:29 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:04:30 PM  all    0.05    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00   99.95
+Average:     all    0.05    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00   99.95
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        15Gi       2.1Gi       9.0Mi       108Gi       109Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.08    0.00    0.06    0.00    0.00   99.85
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.01      0.72     0.00   0.66    0.24    67.33   18.45   1770.53    24.01  56.55    1.32    95.96    0.03   1412.57     0.00   0.00    0.48 45997.02    0.00    0.00    0.02   0.09
+nvme1n1          0.06      1.38     0.01  15.86    0.14    24.47    6.04    604.10     0.99  14.12    1.77   100.09    0.04   1276.56     0.00   0.00    0.27 35463.07    0.00    0.00    0.01   0.02
+--- MINIO DISK USAGE ---
+Filesystem                    Size  Used Avail Use% Mounted on
+/dev/mapper/emulab-node5--bs  1.4T  125G  1.2T  10% /mydata
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 13 KB/s  TX 0 KB/s
+
+=== SAMPLE 3 @ 2026-05-06 13:04:40 ===
+--- CPU (top snapshot) ---
+top - 13:04:41 up 6 days, 22:04,  3 users,  load average: 0.10, 0.23, 0.26
+Tasks: 673 total,   1 running, 672 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.2 us,  0.3 sy,  0.0 ni, 99.5 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,   2111.3 free,  15892.1 used, 111555.5 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 112421.0 avail Mem 
+--- CPU utilization % ---
+01:04:41 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:04:42 PM  all    0.07    0.00    0.04    0.00    0.00    0.00    0.00    0.00    0.00   99.89
+Average:     all    0.07    0.00    0.04    0.00    0.00    0.00    0.00    0.00    0.00   99.89
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        15Gi       2.1Gi       9.0Mi       108Gi       109Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.08    0.00    0.06    0.00    0.00   99.85
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.01      0.72     0.00   0.66    0.24    67.33   18.45   1770.50    24.01  56.55    1.32    95.96    0.03   1412.54     0.00   0.00    0.48 45997.02    0.00    0.00    0.02   0.09
+nvme1n1          0.06      1.38     0.01  15.86    0.14    24.47    6.04    604.09     0.99  14.12    1.77   100.09    0.04   1276.54     0.00   0.00    0.27 35463.07    0.00    0.00    0.01   0.02
+--- MINIO DISK USAGE ---
+Filesystem                    Size  Used Avail Use% Mounted on
+/dev/mapper/emulab-node5--bs  1.4T  125G  1.2T  10% /mydata
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 12 KB/s  TX 0 KB/s
+
+=== SAMPLE 4 @ 2026-05-06 13:04:52 ===
+--- CPU (top snapshot) ---
+top - 13:04:52 up 6 days, 22:05,  3 users,  load average: 0.08, 0.22, 0.25
+Tasks: 671 total,   1 running, 670 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.2 sy,  0.0 ni, 99.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,   2107.8 free,  15895.5 used, 111555.5 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 112417.5 avail Mem 
+--- CPU utilization % ---
+01:04:52 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:04:53 PM  all    0.20    0.00    0.02    0.00    0.00    0.00    0.00    0.00    0.00   99.79
+Average:     all    0.20    0.00    0.02    0.00    0.00    0.00    0.00    0.00    0.00   99.79
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        15Gi       2.0Gi       9.0Mi       108Gi       109Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.08    0.00    0.06    0.00    0.00   99.85
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.01      0.72     0.00   0.66    0.24    67.33   18.45   1770.47    24.01  56.55    1.32    95.96    0.03   1412.52     0.00   0.00    0.48 45997.02    0.00    0.00    0.02   0.09
+nvme1n1          0.06      1.38     0.01  15.86    0.14    24.47    6.04    604.08     0.99  14.12    1.77   100.09    0.04   1276.52     0.00   0.00    0.27 35463.07    0.00    0.00    0.01   0.02
+--- MINIO DISK USAGE ---
+Filesystem                    Size  Used Avail Use% Mounted on
+/dev/mapper/emulab-node5--bs  1.4T  125G  1.2T  10% /mydata
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 18 KB/s  TX 0 KB/s
+
+=== SAMPLE 5 @ 2026-05-06 13:05:03 ===
+--- CPU (top snapshot) ---
+top - 13:05:03 up 6 days, 22:05,  3 users,  load average: 0.06, 0.21, 0.25
+Tasks: 671 total,   1 running, 670 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.3 us,  0.3 sy,  0.0 ni, 99.3 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,   2110.6 free,  15892.8 used, 111555.5 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 112420.3 avail Mem 
+--- CPU utilization % ---
+01:05:03 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:05:04 PM  all    0.04    0.00    0.04    0.00    0.00    0.00    0.00    0.00    0.00   99.93
+Average:     all    0.04    0.00    0.04    0.00    0.00    0.00    0.00    0.00    0.00   99.93
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        15Gi       2.1Gi       9.0Mi       108Gi       109Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.08    0.00    0.06    0.00    0.00   99.85
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.01      0.72     0.00   0.66    0.24    67.33   18.45   1770.43    24.01  56.55    1.32    95.96    0.03   1412.49     0.00   0.00    0.48 45997.02    0.00    0.00    0.02   0.09
+nvme1n1          0.06      1.38     0.01  15.86    0.14    24.47    6.04    604.06     0.99  14.12    1.77   100.09    0.04   1276.49     0.00   0.00    0.27 35463.07    0.00    0.00    0.01   0.02
+--- MINIO DISK USAGE ---
+Filesystem                    Size  Used Avail Use% Mounted on
+/dev/mapper/emulab-node5--bs  1.4T  125G  1.2T  10% /mydata
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 17 KB/s  TX 0 KB/s
+
+=== SAMPLE 6 @ 2026-05-06 13:05:14 ===
+--- CPU (top snapshot) ---
+top - 13:05:14 up 6 days, 22:05,  3 users,  load average: 0.05, 0.20, 0.25
+Tasks: 669 total,   1 running, 668 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.2 us,  0.2 sy,  0.0 ni, 99.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,   2105.1 free,  15898.2 used, 111555.6 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 112414.9 avail Mem 
+--- CPU utilization % ---
+01:05:14 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:05:15 PM  all    0.25    0.00    0.13    0.00    0.00    0.00    0.00    0.00    0.00   99.62
+Average:     all    0.25    0.00    0.13    0.00    0.00    0.00    0.00    0.00    0.00   99.62
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        15Gi       2.1Gi       9.0Mi       108Gi       109Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.08    0.00    0.06    0.00    0.00   99.85
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.01      0.72     0.00   0.66    0.24    67.33   18.45   1770.40    24.01  56.55    1.32    95.96    0.03   1412.46     0.00   0.00    0.48 45997.02    0.00    0.00    0.02   0.09
+nvme1n1          0.06      1.38     0.01  15.86    0.14    24.47    6.04    604.05     0.99  14.12    1.77   100.09    0.04   1276.47     0.00   0.00    0.27 35463.07    0.00    0.00    0.01   0.02
+--- MINIO DISK USAGE ---
+Filesystem                    Size  Used Avail Use% Mounted on
+/dev/mapper/emulab-node5--bs  1.4T  125G  1.2T  10% /mydata
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 13 KB/s  TX 0 KB/s
+
+=== SAMPLE 7 @ 2026-05-06 13:05:26 ===
+--- CPU (top snapshot) ---
+top - 13:05:26 up 6 days, 22:05,  3 users,  load average: 0.04, 0.19, 0.24
+Tasks: 671 total,   1 running, 670 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.2 us,  0.2 sy,  0.0 ni, 99.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,   2103.5 free,  15899.6 used, 111555.7 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 112413.4 avail Mem 
+--- CPU utilization % ---
+01:05:26 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:05:27 PM  all    0.00    0.00    0.04    0.00    0.00    0.00    0.00    0.00    0.00   99.96
+Average:     all    0.00    0.00    0.04    0.00    0.00    0.00    0.00    0.00    0.00   99.96
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        15Gi       2.1Gi       9.0Mi       108Gi       109Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.08    0.00    0.06    0.00    0.00   99.85
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.01      0.72     0.00   0.66    0.24    67.33   18.45   1770.37    24.01  56.55    1.32    95.96    0.03   1412.44     0.00   0.00    0.48 45997.02    0.00    0.00    0.02   0.09
+nvme1n1          0.06      1.38     0.01  15.86    0.14    24.47    6.04    604.04     0.99  14.12    1.77   100.09    0.04   1276.44     0.00   0.00    0.27 35463.07    0.00    0.00    0.01   0.02
+--- MINIO DISK USAGE ---
+Filesystem                    Size  Used Avail Use% Mounted on
+/dev/mapper/emulab-node5--bs  1.4T  125G  1.2T  10% /mydata
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 14 KB/s  TX 0 KB/s
+
+=== SAMPLE 8 @ 2026-05-06 13:05:37 ===
+--- CPU (top snapshot) ---
+top - 13:05:37 up 6 days, 22:05,  3 users,  load average: 0.04, 0.19, 0.24
+Tasks: 671 total,   1 running, 670 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,   2114.7 free,  15888.5 used, 111555.7 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 112424.5 avail Mem 
+--- CPU utilization % ---
+01:05:37 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:05:38 PM  all    0.05    0.00    0.07    0.00    0.00    0.00    0.00    0.00    0.00   99.88
+Average:     all    0.05    0.00    0.07    0.00    0.00    0.00    0.00    0.00    0.00   99.88
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        15Gi       2.1Gi       9.0Mi       108Gi       109Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.08    0.00    0.06    0.00    0.00   99.85
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.01      0.72     0.00   0.66    0.24    67.33   18.45   1770.33    24.01  56.55    1.32    95.96    0.03   1412.41     0.00   0.00    0.48 45997.02    0.00    0.00    0.02   0.09
+nvme1n1          0.06      1.38     0.01  15.86    0.14    24.47    6.04    604.03     0.99  14.12    1.77   100.09    0.04   1276.42     0.00   0.00    0.27 35463.07    0.00    0.00    0.01   0.02
+--- MINIO DISK USAGE ---
+Filesystem                    Size  Used Avail Use% Mounted on
+/dev/mapper/emulab-node5--bs  1.4T  125G  1.2T  10% /mydata
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 15 KB/s  TX 0 KB/s
+
+=== SAMPLE 9 @ 2026-05-06 13:05:48 ===
+--- CPU (top snapshot) ---
+top - 13:05:48 up 6 days, 22:06,  3 users,  load average: 0.03, 0.18, 0.24
+Tasks: 668 total,   1 running, 667 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,   2111.9 free,  15891.3 used, 111555.7 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 112421.8 avail Mem 
+--- CPU utilization % ---
+01:05:48 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:05:49 PM  all    0.21    0.00    0.11    0.00    0.00    0.00    0.00    0.00    0.00   99.68
+Average:     all    0.21    0.00    0.11    0.00    0.00    0.00    0.00    0.00    0.00   99.68
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        15Gi       2.1Gi       9.0Mi       108Gi       109Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.08    0.00    0.06    0.00    0.00   99.85
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.01      0.72     0.00   0.66    0.24    67.33   18.45   1770.30    24.01  56.55    1.32    95.96    0.03   1412.38     0.00   0.00    0.48 45997.02    0.00    0.00    0.02   0.09
+nvme1n1          0.06      1.38     0.01  15.86    0.14    24.47    6.03    604.02     0.99  14.12    1.77   100.09    0.04   1276.40     0.00   0.00    0.27 35463.07    0.00    0.00    0.01   0.02
+--- MINIO DISK USAGE ---
+Filesystem                    Size  Used Avail Use% Mounted on
+/dev/mapper/emulab-node5--bs  1.4T  125G  1.2T  10% /mydata
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 12 KB/s  TX 0 KB/s
+
+=== SAMPLE 10 @ 2026-05-06 13:05:59 ===
+--- CPU (top snapshot) ---
+top - 13:05:59 up 6 days, 22:06,  3 users,  load average: 0.02, 0.17, 0.23
+Tasks: 668 total,   1 running, 667 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.2 sy,  0.0 ni, 99.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,   2103.6 free,  15899.6 used, 111555.7 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 112413.4 avail Mem 
+--- CPU utilization % ---
+01:06:00 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:06:01 PM  all    0.05    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00   99.95
+Average:     all    0.05    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00   99.95
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        15Gi       2.1Gi       9.0Mi       108Gi       109Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.08    0.00    0.06    0.00    0.00   99.85
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.01      0.72     0.00   0.66    0.24    67.33   18.45   1770.27    24.01  56.55    1.32    95.96    0.03   1412.36     0.00   0.00    0.48 45997.02    0.00    0.00    0.02   0.09
+nvme1n1          0.06      1.38     0.01  15.86    0.14    24.47    6.03    604.01     0.99  14.12    1.77   100.09    0.04   1276.37     0.00   0.00    0.27 35463.07    0.00    0.00    0.01   0.02
+--- MINIO DISK USAGE ---
+Filesystem                    Size  Used Avail Use% Mounted on
+/dev/mapper/emulab-node5--bs  1.4T  125G  1.2T  10% /mydata
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 15 KB/s  TX 0 KB/s
+
+=== SAMPLE 11 @ 2026-05-06 13:06:11 ===
+--- CPU (top snapshot) ---
+top - 13:06:11 up 6 days, 22:06,  3 users,  load average: 0.02, 0.16, 0.23
+Tasks: 668 total,   1 running, 667 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.2 us,  0.2 sy,  0.0 ni, 99.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,   2107.7 free,  15895.4 used, 111555.8 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 112417.6 avail Mem 
+--- CPU utilization % ---
+01:06:11 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:06:12 PM  all    0.18    0.00    0.14    0.00    0.00    0.00    0.00    0.00    0.00   99.68
+Average:     all    0.18    0.00    0.14    0.00    0.00    0.00    0.00    0.00    0.00   99.68
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        15Gi       2.1Gi       9.0Mi       108Gi       109Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.08    0.00    0.06    0.00    0.00   99.85
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.01      0.72     0.00   0.66    0.24    67.33   18.45   1770.23    24.01  56.55    1.32    95.96    0.03   1412.33     0.00   0.00    0.48 45997.02    0.00    0.00    0.02   0.09
+nvme1n1          0.06      1.38     0.01  15.86    0.14    24.47    6.03    604.00     0.99  14.12    1.77   100.09    0.04   1276.35     0.00   0.00    0.27 35463.07    0.00    0.00    0.01   0.02
+--- MINIO DISK USAGE ---
+Filesystem                    Size  Used Avail Use% Mounted on
+/dev/mapper/emulab-node5--bs  1.4T  125G  1.2T  10% /mydata
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 14 KB/s  TX 0 KB/s
+
+=== SAMPLE 12 @ 2026-05-06 13:06:22 ===
+--- CPU (top snapshot) ---
+top - 13:06:22 up 6 days, 22:06,  3 users,  load average: 0.02, 0.16, 0.23
+Tasks: 666 total,   1 running, 665 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.8 us,  0.6 sy,  0.0 ni, 98.5 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,   2097.0 free,  15906.1 used, 111555.9 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 112407.0 avail Mem 
+--- CPU utilization % ---
+01:06:22 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:06:23 PM  all    0.04    0.00    0.04    0.00    0.00    0.00    0.00    0.00    0.00   99.93
+Average:     all    0.04    0.00    0.04    0.00    0.00    0.00    0.00    0.00    0.00   99.93
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        15Gi       2.4Gi       9.0Mi       108Gi       110Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.08    0.00    0.06    0.00    0.00   99.85
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.01      0.72     0.00   0.66    0.24    67.33   18.45   1770.20    24.01  56.55    1.32    95.96    0.03   1412.30     0.00   0.00    0.48 45997.02    0.00    0.00    0.02   0.09
+nvme1n1          0.06      1.38     0.01  15.86    0.14    24.47    6.03    603.99     0.99  14.12    1.77   100.09    0.04   1276.32     0.00   0.00    0.27 35463.07    0.00    0.00    0.01   0.02
+--- MINIO DISK USAGE ---
+Filesystem                    Size  Used Avail Use% Mounted on
+/dev/mapper/emulab-node5--bs  1.4T  125G  1.2T  10% /mydata
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 12 KB/s  TX 0 KB/s
+
+=== SAMPLE 13 @ 2026-05-06 13:06:33 ===
+--- CPU (top snapshot) ---
+top - 13:06:33 up 6 days, 22:06,  3 users,  load average: 0.01, 0.15, 0.22
+Tasks: 666 total,   1 running, 665 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.3 sy,  0.0 ni, 99.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,   2401.8 free,  15601.3 used, 111555.9 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 112711.8 avail Mem 
+--- CPU utilization % ---
+01:06:33 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:06:34 PM  all    0.11    0.00    0.02    0.00    0.00    0.00    0.00    0.00    0.00   99.87
+Average:     all    0.11    0.00    0.02    0.00    0.00    0.00    0.00    0.00    0.00   99.87
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        15Gi       2.3Gi       9.0Mi       108Gi       110Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.08    0.00    0.06    0.00    0.00   99.85
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.01      0.72     0.00   0.66    0.24    67.33   18.45   1770.17    24.01  56.55    1.32    95.96    0.03   1412.28     0.00   0.00    0.48 45997.02    0.00    0.00    0.02   0.09
+nvme1n1          0.06      1.38     0.01  15.86    0.14    24.47    6.03    603.98     0.99  14.12    1.77   100.09    0.04   1276.30     0.00   0.00    0.27 35463.07    0.00    0.00    0.01   0.02
+--- MINIO DISK USAGE ---
+Filesystem                    Size  Used Avail Use% Mounted on
+/dev/mapper/emulab-node5--bs  1.4T  125G  1.2T  10% /mydata
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 11 KB/s  TX 0 KB/s
+
+=== SAMPLE 14 @ 2026-05-06 13:06:44 ===
+--- CPU (top snapshot) ---
+top - 13:06:45 up 6 days, 22:06,  3 users,  load average: 0.01, 0.14, 0.22
+Tasks: 668 total,   1 running, 667 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.2 us,  0.2 sy,  0.0 ni, 99.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,   2411.5 free,  15591.5 used, 111555.9 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 112721.5 avail Mem 
+--- CPU utilization % ---
+01:06:45 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:06:46 PM  all    0.04    0.00    0.02    0.00    0.00    0.00    0.00    0.00    0.00   99.95
+Average:     all    0.04    0.00    0.02    0.00    0.00    0.00    0.00    0.00    0.00   99.95
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        15Gi       2.4Gi       9.0Mi       108Gi       110Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.08    0.00    0.06    0.00    0.00   99.85
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.01      0.72     0.00   0.66    0.24    67.33   18.45   1770.14    24.01  56.55    1.32    95.96    0.03   1412.25     0.00   0.00    0.48 45997.02    0.00    0.00    0.02   0.09
+nvme1n1          0.06      1.38     0.01  15.86    0.14    24.47    6.03    603.96     0.99  14.12    1.77   100.09    0.04   1276.28     0.00   0.00    0.27 35463.07    0.00    0.00    0.01   0.02
+--- MINIO DISK USAGE ---
+Filesystem                    Size  Used Avail Use% Mounted on
+/dev/mapper/emulab-node5--bs  1.4T  125G  1.2T  10% /mydata
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 14 KB/s  TX 0 KB/s
+
+=== SAMPLE 15 @ 2026-05-06 13:06:56 ===
+--- CPU (top snapshot) ---
+top - 13:06:56 up 6 days, 22:07,  3 users,  load average: 0.01, 0.14, 0.22
+Tasks: 667 total,   1 running, 666 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.2 us,  0.2 sy,  0.0 ni, 99.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,   2420.0 free,  15583.0 used, 111555.9 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 112730.1 avail Mem 
+--- CPU utilization % ---
+01:06:56 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:06:57 PM  all    0.02    0.00    0.02    0.00    0.00    0.00    0.00    0.00    0.00   99.96
+Average:     all    0.02    0.00    0.02    0.00    0.00    0.00    0.00    0.00    0.00   99.96
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        15Gi       2.4Gi       9.0Mi       108Gi       110Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.08    0.00    0.06    0.00    0.00   99.85
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.01      0.72     0.00   0.66    0.24    67.33   18.45   1770.10    24.01  56.55    1.32    95.96    0.03   1412.22     0.00   0.00    0.48 45997.02    0.00    0.00    0.02   0.09
+nvme1n1          0.06      1.38     0.01  15.86    0.14    24.47    6.03    603.95     0.99  14.12    1.77   100.09    0.04   1276.25     0.00   0.00    0.27 35463.07    0.00    0.00    0.01   0.02
+--- MINIO DISK USAGE ---
+Filesystem                    Size  Used Avail Use% Mounted on
+/dev/mapper/emulab-node5--bs  1.4T  125G  1.2T  10% /mydata
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 12 KB/s  TX 0 KB/s
+
+=== SAMPLE 16 @ 2026-05-06 13:07:07 ===
+--- CPU (top snapshot) ---
+top - 13:07:07 up 6 days, 22:07,  3 users,  load average: 0.01, 0.13, 0.21
+Tasks: 668 total,   1 running, 667 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.2 us,  0.0 sy,  0.0 ni, 99.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,   2416.9 free,  15586.1 used, 111555.9 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 112727.0 avail Mem 
+--- CPU utilization % ---
+01:07:07 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:07:08 PM  all    0.07    0.00    0.04    0.00    0.00    0.00    0.00    0.00    0.00   99.89
+Average:     all    0.07    0.00    0.04    0.00    0.00    0.00    0.00    0.00    0.00   99.89
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        15Gi       2.4Gi       9.0Mi       108Gi       110Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.08    0.00    0.06    0.00    0.00   99.85
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.01      0.72     0.00   0.66    0.24    67.33   18.45   1770.07    24.01  56.55    1.32    95.96    0.03   1412.20     0.00   0.00    0.48 45997.02    0.00    0.00    0.02   0.09
+nvme1n1          0.06      1.38     0.01  15.86    0.14    24.47    6.03    603.94     0.99  14.12    1.77   100.08    0.04   1276.23     0.00   0.00    0.27 35463.07    0.00    0.00    0.01   0.02
+--- MINIO DISK USAGE ---
+Filesystem                    Size  Used Avail Use% Mounted on
+/dev/mapper/emulab-node5--bs  1.4T  125G  1.2T  10% /mydata
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 16 KB/s  TX 0 KB/s
+
+=== SAMPLE 17 @ 2026-05-06 13:07:18 ===
+--- CPU (top snapshot) ---
+top - 13:07:18 up 6 days, 22:07,  3 users,  load average: 0.00, 0.13, 0.21
+Tasks: 670 total,   1 running, 669 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.3 us,  0.2 sy,  0.0 ni, 99.5 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,   2407.8 free,  15595.2 used, 111555.9 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 112717.9 avail Mem 
+--- CPU utilization % ---
+01:07:18 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:07:19 PM  all    0.32    0.00    0.18    0.00    0.00    0.00    0.00    0.00    0.00   99.50
+Average:     all    0.32    0.00    0.18    0.00    0.00    0.00    0.00    0.00    0.00   99.50
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        15Gi       2.3Gi       9.0Mi       108Gi       110Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.08    0.00    0.06    0.00    0.00   99.85
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.01      0.72     0.00   0.66    0.24    67.33   18.45   1770.04    24.01  56.55    1.32    95.96    0.03   1412.17     0.00   0.00    0.48 45997.02    0.00    0.00    0.02   0.09
+nvme1n1          0.06      1.38     0.01  15.86    0.14    24.47    6.03    603.93     0.99  14.12    1.77   100.08    0.04   1276.20     0.00   0.00    0.27 35463.07    0.00    0.00    0.01   0.02
+--- MINIO DISK USAGE ---
+Filesystem                    Size  Used Avail Use% Mounted on
+/dev/mapper/emulab-node5--bs  1.4T  125G  1.2T  10% /mydata
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 14 KB/s  TX 0 KB/s
+
+=== SAMPLE 18 @ 2026-05-06 13:07:29 ===
+--- CPU (top snapshot) ---
+top - 13:07:30 up 6 days, 22:07,  3 users,  load average: 0.00, 0.12, 0.21
+Tasks: 667 total,   1 running, 666 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.2 us,  0.0 sy,  0.0 ni, 99.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,   2410.2 free,  15592.6 used, 111556.0 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 112720.4 avail Mem 
+--- CPU utilization % ---
+01:07:30 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:07:31 PM  all    0.04    0.00    0.05    0.00    0.00    0.00    0.00    0.00    0.00   99.91
+Average:     all    0.04    0.00    0.05    0.00    0.00    0.00    0.00    0.00    0.00   99.91
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        15Gi       2.4Gi       9.0Mi       108Gi       110Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.08    0.00    0.06    0.00    0.00   99.85
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.01      0.72     0.00   0.66    0.24    67.33   18.45   1770.01    24.01  56.55    1.32    95.96    0.03   1412.14     0.00   0.00    0.48 45997.02    0.00    0.00    0.02   0.09
+nvme1n1          0.06      1.38     0.01  15.86    0.14    24.47    6.03    603.92     0.99  14.13    1.77   100.08    0.04   1276.18     0.00   0.00    0.27 35463.07    0.00    0.00    0.01   0.02
+--- MINIO DISK USAGE ---
+Filesystem                    Size  Used Avail Use% Mounted on
+/dev/mapper/emulab-node5--bs  1.4T  125G  1.2T  10% /mydata
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 14 KB/s  TX 0 KB/s
+
+=== SAMPLE 19 @ 2026-05-06 13:07:41 ===
+--- CPU (top snapshot) ---
+top - 13:07:41 up 6 days, 22:07,  3 users,  load average: 0.00, 0.12, 0.20
+Tasks: 667 total,   1 running, 666 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.2 us,  0.2 sy,  0.0 ni, 99.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,   4761.4 free,  15589.9 used, 109207.5 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 112723.1 avail Mem 
+--- CPU utilization % ---
+01:07:41 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:07:42 PM  all    0.07    0.00    0.05    0.00    0.00    0.00    0.00    0.00    0.00   99.88
+Average:     all    0.07    0.00    0.05    0.00    0.00    0.00    0.00    0.00    0.00   99.88
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        15Gi       4.6Gi       9.0Mi       106Gi       110Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.08    0.00    0.06    0.00    0.00   99.85
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.01      0.72     0.00   0.66    0.24    67.33   18.45   1769.98    24.01  56.55    1.32    95.96    0.03   1412.12     0.00   0.00    0.48 45997.02    0.00    0.00    0.02   0.09
+nvme1n1          0.06      1.38     0.01  15.86    0.14    24.47    6.03    603.91     0.99  14.13    1.77   100.08    0.04   1276.16     0.00   0.00    0.27 35463.07    0.00    0.00    0.01   0.02
+--- MINIO DISK USAGE ---
+Filesystem                    Size  Used Avail Use% Mounted on
+/dev/mapper/emulab-node5--bs  1.4T  123G  1.2T  10% /mydata
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 14 KB/s  TX 0 KB/s
+
+=== SAMPLE 20 @ 2026-05-06 13:07:52 ===
+--- CPU (top snapshot) ---
+top - 13:07:52 up 6 days, 22:08,  3 users,  load average: 0.22, 0.16, 0.22
+Tasks: 669 total,   1 running, 668 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.7 us,  0.7 sy,  0.0 ni, 98.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,   4754.3 free,  15597.0 used, 109207.6 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 112716.0 avail Mem 
+--- CPU utilization % ---
+01:07:52 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:07:53 PM  all    0.04    0.00    0.04    0.00    0.00    0.00    0.00    0.00    0.00   99.93
+Average:     all    0.04    0.00    0.04    0.00    0.00    0.00    0.00    0.00    0.00   99.93
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        15Gi       4.6Gi       9.0Mi       106Gi       110Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.08    0.00    0.06    0.00    0.00   99.85
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.01      0.72     0.00   0.66    0.24    67.33   18.45   1769.95    24.01  56.55    1.32    95.96    0.03   1412.09     0.00   0.00    0.48 45997.02    0.00    0.00    0.02   0.09
+nvme1n1          0.06      1.38     0.01  15.86    0.14    24.47    6.03    603.90     0.99  14.13    1.77   100.08    0.04   1276.13     0.00   0.00    0.27 35463.07    0.00    0.00    0.01   0.02
+--- MINIO DISK USAGE ---
+Filesystem                    Size  Used Avail Use% Mounted on
+/dev/mapper/emulab-node5--bs  1.4T  123G  1.2T  10% /mydata
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 15 KB/s  TX 0 KB/s
+
+=== SAMPLE 21 @ 2026-05-06 13:08:03 ===
+--- CPU (top snapshot) ---
+top - 13:08:03 up 6 days, 22:08,  3 users,  load average: 0.17, 0.15, 0.21
+Tasks: 664 total,   1 running, 663 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,   4748.3 free,  15603.0 used, 109207.6 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 112710.0 avail Mem 
+--- CPU utilization % ---
+01:08:03 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:08:04 PM  all    0.07    0.00    0.04    0.00    0.00    0.00    0.00    0.00    0.00   99.89
+Average:     all    0.07    0.00    0.04    0.00    0.00    0.00    0.00    0.00    0.00   99.89
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        15Gi       4.6Gi       9.0Mi       106Gi       110Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.08    0.00    0.06    0.00    0.00   99.85
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.01      0.72     0.00   0.66    0.24    67.33   18.45   1769.92    24.01  56.55    1.32    95.96    0.03   1412.06     0.00   0.00    0.48 45997.02    0.00    0.00    0.02   0.09
+nvme1n1          0.06      1.38     0.01  15.86    0.14    24.47    6.03    603.89     0.99  14.13    1.77   100.08    0.04   1276.11     0.00   0.00    0.27 35463.07    0.00    0.00    0.01   0.02
+--- MINIO DISK USAGE ---
+Filesystem                    Size  Used Avail Use% Mounted on
+/dev/mapper/emulab-node5--bs  1.4T  123G  1.2T  10% /mydata
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 12 KB/s  TX 0 KB/s
+
+=== SAMPLE 22 @ 2026-05-06 13:08:14 ===
+--- CPU (top snapshot) ---
+top - 13:08:15 up 6 days, 22:08,  3 users,  load average: 0.15, 0.15, 0.21
+Tasks: 667 total,   1 running, 666 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.2 us,  0.2 sy,  0.0 ni, 99.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,   4764.9 free,  15586.4 used, 109207.6 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 112726.6 avail Mem 
+--- CPU utilization % ---
+01:08:15 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:08:16 PM  all    0.41    0.00    0.05    0.00    0.00    0.00    0.00    0.00    0.00   99.54
+Average:     all    0.41    0.00    0.05    0.00    0.00    0.00    0.00    0.00    0.00   99.54
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        15Gi       4.7Gi       9.0Mi       106Gi       110Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.08    0.00    0.06    0.00    0.00   99.85
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.01      0.72     0.00   0.66    0.24    67.33   18.44   1769.88    24.01  56.55    1.32    95.96    0.03   1412.04     0.00   0.00    0.48 45997.02    0.00    0.00    0.02   0.09
+nvme1n1          0.06      1.38     0.01  15.86    0.14    24.47    6.03    603.87     0.99  14.13    1.77   100.08    0.04   1276.08     0.00   0.00    0.27 35463.07    0.00    0.00    0.01   0.02
+--- MINIO DISK USAGE ---
+Filesystem                    Size  Used Avail Use% Mounted on
+/dev/mapper/emulab-node5--bs  1.4T  123G  1.2T  10% /mydata
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 14 KB/s  TX 0 KB/s
+
+=== SAMPLE 23 @ 2026-05-06 13:08:26 ===
+--- CPU (top snapshot) ---
+top - 13:08:26 up 6 days, 22:08,  3 users,  load average: 0.20, 0.16, 0.21
+Tasks: 669 total,   1 running, 668 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,   4754.9 free,  15596.4 used, 109207.6 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 112716.6 avail Mem 
+--- CPU utilization % ---
+01:08:26 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:08:27 PM  all    0.04    0.00    0.05    0.00    0.00    0.00    0.00    0.00    0.00   99.91
+Average:     all    0.04    0.00    0.05    0.00    0.00    0.00    0.00    0.00    0.00   99.91
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        15Gi       4.6Gi       9.0Mi       106Gi       110Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.08    0.00    0.06    0.00    0.00   99.85
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.01      0.72     0.00   0.66    0.24    67.33   18.44   1769.85    24.01  56.55    1.32    95.95    0.03   1412.01     0.00   0.00    0.48 45997.02    0.00    0.00    0.02   0.09
+nvme1n1          0.06      1.38     0.01  15.86    0.14    24.47    6.03    603.86     0.99  14.13    1.77   100.08    0.04   1276.06     0.00   0.00    0.27 35463.07    0.00    0.00    0.01   0.02
+--- MINIO DISK USAGE ---
+Filesystem                    Size  Used Avail Use% Mounted on
+/dev/mapper/emulab-node5--bs  1.4T  123G  1.2T  10% /mydata
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 12 KB/s  TX 0 KB/s
+
+=== SAMPLE 24 @ 2026-05-06 13:08:37 ===
+--- CPU (top snapshot) ---
+top - 13:08:37 up 6 days, 22:08,  3 users,  load average: 0.17, 0.15, 0.21
+Tasks: 667 total,   1 running, 666 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.2 sy,  0.0 ni, 99.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,   4759.1 free,  15592.2 used, 109207.6 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 112720.9 avail Mem 
+--- CPU utilization % ---
+01:08:37 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:08:38 PM  all    0.05    0.00    0.02    0.00    0.00    0.00    0.00    0.00    0.00   99.93
+Average:     all    0.05    0.00    0.02    0.00    0.00    0.00    0.00    0.00    0.00   99.93
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        15Gi       4.6Gi       9.0Mi       106Gi       110Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.08    0.00    0.06    0.00    0.00   99.85
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.01      0.72     0.00   0.66    0.24    67.33   18.44   1769.82    24.01  56.55    1.32    95.95    0.03   1411.98     0.00   0.00    0.48 45997.02    0.00    0.00    0.02   0.09
+nvme1n1          0.06      1.38     0.01  15.86    0.14    24.47    6.03    603.85     0.99  14.13    1.77   100.08    0.04   1276.03     0.00   0.00    0.27 35463.07    0.00    0.00    0.01   0.02
+--- MINIO DISK USAGE ---
+Filesystem                    Size  Used Avail Use% Mounted on
+/dev/mapper/emulab-node5--bs  1.4T  123G  1.2T  10% /mydata
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 14 KB/s  TX 0 KB/s
+
+=== SAMPLE 25 @ 2026-05-06 13:08:48 ===
+--- CPU (top snapshot) ---
+top - 13:08:48 up 6 days, 22:09,  3 users,  load average: 0.13, 0.14, 0.20
+Tasks: 671 total,   1 running, 670 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.2 us,  0.2 sy,  0.0 ni, 99.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,   4769.5 free,  15581.8 used, 109207.6 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 112731.3 avail Mem 
+--- CPU utilization % ---
+01:08:48 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:08:49 PM  all    0.09    0.00    0.02    0.00    0.00    0.00    0.00    0.00    0.00   99.89
+Average:     all    0.09    0.00    0.02    0.00    0.00    0.00    0.00    0.00    0.00   99.89
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        15Gi       4.7Gi       9.0Mi       106Gi       110Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.08    0.00    0.06    0.00    0.00   99.85
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.01      0.72     0.00   0.66    0.24    67.33   18.44   1769.79    24.01  56.55    1.32    95.95    0.03   1411.96     0.00   0.00    0.48 45997.02    0.00    0.00    0.02   0.09
+nvme1n1          0.06      1.38     0.01  15.86    0.14    24.47    6.03    603.84     0.99  14.13    1.77   100.08    0.04   1276.01     0.00   0.00    0.27 35463.07    0.00    0.00    0.01   0.02
+--- MINIO DISK USAGE ---
+Filesystem                    Size  Used Avail Use% Mounted on
+/dev/mapper/emulab-node5--bs  1.4T  123G  1.2T  10% /mydata
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 14 KB/s  TX 0 KB/s
+
+=== SAMPLE 26 @ 2026-05-06 13:08:59 ===
+--- CPU (top snapshot) ---
+top - 13:09:00 up 6 days, 22:09,  3 users,  load average: 0.11, 0.14, 0.20
+Tasks: 671 total,   1 running, 670 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.2 us,  0.2 sy,  0.0 ni, 99.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,   4764.3 free,  15587.0 used, 109207.7 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 112726.1 avail Mem 
+--- CPU utilization % ---
+01:09:00 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:09:01 PM  all    0.02    0.00    0.02    0.00    0.00    0.00    0.00    0.00    0.00   99.96
+Average:     all    0.02    0.00    0.02    0.00    0.00    0.00    0.00    0.00    0.00   99.96
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        15Gi       4.7Gi       9.0Mi       106Gi       110Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.08    0.00    0.06    0.00    0.00   99.85
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.01      0.72     0.00   0.66    0.24    67.33   18.44   1769.75    24.01  56.55    1.32    95.95    0.03   1411.93     0.00   0.00    0.48 45997.02    0.00    0.00    0.02   0.09
+nvme1n1          0.06      1.38     0.01  15.86    0.14    24.47    6.03    603.83     0.99  14.13    1.77   100.08    0.04   1275.99     0.00   0.00    0.27 35463.07    0.00    0.00    0.01   0.02
+--- MINIO DISK USAGE ---
+Filesystem                    Size  Used Avail Use% Mounted on
+/dev/mapper/emulab-node5--bs  1.4T  123G  1.2T  10% /mydata
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 17 KB/s  TX 0 KB/s
+
+=== SAMPLE 27 @ 2026-05-06 13:09:11 ===
+--- CPU (top snapshot) ---
+top - 13:09:11 up 6 days, 22:09,  3 users,  load average: 0.09, 0.13, 0.20
+Tasks: 669 total,   1 running, 668 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.2 us,  0.2 sy,  0.0 ni, 99.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem : 128313.0 total,   4745.5 free,  15605.7 used, 109207.7 buff/cache     
+MiB Swap:      0.0 total,      0.0 free,      0.0 used. 112707.3 avail Mem 
+--- CPU utilization % ---
+01:09:11 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:09:12 PM  all    0.23    0.00    0.18    0.00    0.00    0.00    0.00    0.00    0.00   99.59
+Average:     all    0.23    0.00    0.18    0.00    0.00    0.00    0.00    0.00    0.00   99.59
+--- MEMORY ---
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi        15Gi       4.6Gi       9.0Mi       106Gi       110Gi
+Swap:             0B          0B          0B
+--- DISK I/O (nvme0n1 nvme1n1 ) ---
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.08    0.00    0.06    0.00    0.00   99.85
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+nvme0n1          0.01      0.72     0.00   0.66    0.24    67.33   18.44   1769.72    24.00  56.55    1.32    95.95    0.03   1411.90     0.00   0.00    0.48 45997.02    0.00    0.00    0.02   0.09
+nvme1n1          0.06      1.38     0.01  15.86    0.14    24.47    6.03    603.82     0.99  14.13    1.77   100.08    0.04   1275.96     0.00   0.00    0.27 35463.07    0.00    0.00    0.01   0.02
+--- MINIO DISK USAGE ---
+Filesystem                    Size  Used Avail Use% Mounted on
+/dev/mapper/emulab-node5--bs  1.4T  123G  1.2T  10% /mydata
+--- NETWORK (rx/tx bytes delta) ---
+  eno12399np0: RX 13 KB/s  TX 0 KB/s
+
+──────────────────────────────────────────
+MONITORING COMPLETE — Wed May  6 01:09:22 PM MDT 2026
+──────────────────────────────────────────

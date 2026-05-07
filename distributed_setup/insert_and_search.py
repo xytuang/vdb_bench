@@ -28,7 +28,7 @@ import argparse
 # ─────────────────────────────────────────────
 DATASET_PATH      = "/mydata/SPTAG/datasets/SPACEV1B/"
 HOST              = "10.10.1.8"
-PORT              = 31053
+PORT              = 31387
 COLLECTION_NAME   = "VDBBench"
 VECTORS_PER_ROUND = 10_000_000
 NUM_ROUNDS        = 5

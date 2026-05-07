@@ -1,0 +1,43 @@
+
+=================================================================
+SEGMENT SNAPSHOT — round=5  phase=post
+timestamp: 2026-05-06T20:04:30.005147
+=================================================================
+
+── PERSISTENT (datacoord / object storage) ─────────────────────
+  Total segments   :    176
+  Total rows       :   99,884,713
+  By state         : {'Flushed': 176}
+
+── QUERYNODE (loaded in memory, may lag) ────────────────────────
+  Total segments   :     15   (states: {3: 15})
+  Total rows       :   50,000,000
+  Growing (state=2):      0   rows:            0
+  Sealed  (state=3):     15   rows:   50,000,000
+    └─ DISKANN     :     10   rows:   32,279,320
+    └─ STL_SORT    :      5   rows:   17,720,680
+    └─ unindexed   :      0   rows:            0
+    └─ other       :      0   rows:            0
+  Unindexed %      :         0.0%
+
+── LAG ──────────────────────────────────────────────────────────
+  Persistent - querynode:   +49,884,713 rows
+  (positive = querynode hasn't loaded all inserts yet)
+─────────────────────────────────────────────────────────────────
+
+  Querynode sealed segment details (first 20):
+    seg_id=466113399591870366  rows=174,060  state=3  index=DISKANN  node=[5]
+    seg_id=466113399592208625  rows=4,971,040  state=3  index=DISKANN  node=[5]
+    seg_id=466113399593395682  rows=4,320,148  state=3  index=DISKANN  node=[5]
+    seg_id=466113399591870365  rows=4,971,040  state=3  index=DISKANN  node=[5]
+    seg_id=466113399585472393  rows=2,563,932  state=3  index=DISKANN  node=[5]
+    seg_id=466113399526326570  rows=2,862,764  state=3  index=STL_SORT  node=[5]
+    seg_id=466113399547837342  rows=3,137,088  state=3  index=STL_SORT  node=[5]
+    seg_id=466113399586258328  rows=4,017,856  state=3  index=DISKANN  node=[5]
+    seg_id=466113399592208626  rows=659,500  state=3  index=DISKANN  node=[5]
+    seg_id=466113399592320744  rows=4,044,464  state=3  index=STL_SORT  node=[5]
+    seg_id=466113399584252743  rows=4,296,112  state=3  index=DISKANN  node=[5]
+    seg_id=466113399591593579  rows=3,986,696  state=3  index=STL_SORT  node=[5]
+    seg_id=466113399586702607  rows=2,582,380  state=3  index=DISKANN  node=[5]
+    seg_id=466113399591983029  rows=3,723,252  state=3  index=DISKANN  node=[5]
+    seg_id=466113399592096330  rows=3,689,668  state=3  index=STL_SORT  node=[5]

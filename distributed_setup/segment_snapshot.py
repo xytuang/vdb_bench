@@ -22,7 +22,7 @@ import os
 from datetime import datetime
 
 HOST            = "10.10.1.8"
-PORT            = 31053
+PORT            = 31387
 COLLECTION_NAME = "VDBBench"
 LOG_DIR         = "/mydata/vdb_bench/distributed_setup/results/segment_logs"
 
